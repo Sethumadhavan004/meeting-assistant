@@ -1,0 +1,41 @@
+run_id,format_valid,review,note
+bonsai_off_m01_pricing_r1_021724,0,REVIEW,"fields mislabelled: owner name sits under ""Task:"", task under ""Action:"" - readable by a person, wrong for a parser"
+bonsai_on_m01_pricing_r1_011116,1,,
+granite_off_m01_pricing_r1_033141,1,,adds a free-text note after the list
+granite_on_m01_pricing_r1_023300,1,,JSON
+phi_off_m01_pricing_r1_033846,1,,
+bonsai_off_m02_offsite_r1_021744,0,REVIEW,"same mislabelling: ""Task: Owner: Akhash"""
+bonsai_on_m02_offsite_r1_011746,1,,
+granite_off_m02_offsite_r1_033214,1,,
+granite_on_m02_offsite_r1_023928,1,,JSON
+phi_off_m02_offsite_r1_033919,1,,
+bonsai_off_m03_newsletter_r1_021802,1,,
+bonsai_on_m03_newsletter_r1_012325,1,,
+granite_off_m03_newsletter_r1_033231,1,,
+granite_on_m03_newsletter_r1_024348,1,,
+phi_off_m03_newsletter_r1_033938,1,,
+bonsai_off_m04_workshop_r1_021826,0,REVIEW,"no owner field: owner is inside the ""Action:"" sentence (""Darcy sends workshop invites"")"
+bonsai_on_m04_workshop_r1_012655,0,,empty answer (hit 3000-token cap while thinking)
+granite_off_m04_workshop_r1_033252,1,,
+granite_on_m04_workshop_r1_024702,0,,empty answer (hit 3000-token cap while thinking)
+phi_off_m04_workshop_r1_033957,1,,
+bonsai_off_m05_sprint_r1_021850,1,,
+bonsai_on_m05_sprint_r1_013354,1,,
+granite_off_m05_sprint_r1_033309,1,REVIEW,"prose lines (""Priya, review ... by Wednesday""): owner first, deadline inside the sentence"
+granite_on_m05_sprint_r1_025620,0,,empty answer (hit 3000-token cap while thinking)
+phi_off_m05_sprint_r1_034019,1,,
+bonsai_off_m08_hiring_r1_022337,1,,
+bonsai_on_m08_hiring_r1_020601,1,,
+granite_off_m08_hiring_r1_033718,1,,
+granite_on_m08_hiring_r1_032155,0,,empty answer (hit 3000-token cap while thinking)
+phi_off_m08_hiring_r1_034304,1,,
+bonsai_off_m06_launch_r1_021946,1,,
+bonsai_on_m06_launch_r1_014834,0,,empty answer (hit 3000-token cap while thinking)
+granite_off_m06_launch_r1_033411,1,REVIEW,prose lines; deadline inside the sentence
+granite_on_m06_launch_r1_030555,0,,empty answer (hit 3000-token cap while thinking)
+phi_off_m06_launch_r1_034107,1,REVIEW,"""Owner - sentence"" lines; deadline inside the sentence"
+bonsai_off_m07_postmortem_r1_022151,1,,
+bonsai_on_m07_postmortem_r1_015729,0,,empty answer (hit 3000-token cap while thinking)
+granite_off_m07_postmortem_r1_033554,0,REVIEW,"lists lines it says are ""omitted"" and repeats items: a reader can't tell what counts"
+granite_on_m07_postmortem_r1_031629,1,,
+phi_off_m07_postmortem_r1_034204,1,,

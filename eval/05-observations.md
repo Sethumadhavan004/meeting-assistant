@@ -104,3 +104,29 @@ The author wrote `gold.md` without reading Claude's key; Claude compared the two
   llama-server-specific (Q5 reworded). Both runtimes are llama.cpp-based.
 - Validity: 40/40 rows, max context used 3926 ≤ 4096, lowest available RAM 0.52 GB, no speed
   collapse. All runs valid.
+
+## 2026-10-25 · Stage 5: scoring draft (Claude; awaiting author review)
+
+Files: `eval/scoring/labels.csv` (208 item labels), `runs.csv` (format), `score.py` → `scores.csv`.
+42 REVIEW flags grouped into 6 decisions in `eval/scoring/REVIEW.md`. Numbers below use Claude's
+defaults and may change after review.
+
+- **Thinking off beats thinking on, for every model.** Recall: Granite off 0.94 vs on 0.28; Bonsai
+  off 0.91 vs on 0.47. Mostly because thinking-on runs lost answers to the token cap. When thinking
+  did finish, precision was perfect and deadlines were good.
+- **Granite off and Phi off tie on recall (0.94)** but fail differently. Granite: best deadlines
+  (0.96) and zero invented deadlines. Phi: fastest (27 s median), always well formatted (8/8), but
+  invents "ASAP" deadlines (m08) and has the weakest owner accuracy (0.78).
+- **Bonsai off handles ownership best** (owner 0.92, ambiguity 1.25: it flags unowned tasks as
+  unassigned more often) but loses recall on L meetings (0.83: it dropped all three of Goutham's
+  m06 tasks), invents "Immediate (during meeting)" deadlines in m08, and mislabels fields (5/8 format).
+- **The universal failure: the "we need…/someone should…" task goes to the person who said it.**
+  m02 venue → Akhash in 5/5 configs. Phi never flagged an unassigned item (ambiguity 0).
+- **Reporter ≠ owner (m04):** Granite off and Phi gave Darcy's invites to Elizabeth, who reported it.
+  Only Bonsai off resolved the pronoun.
+- **Contradicting duplicates** (same task, second owner) appeared 9 times in non-thinking runs, often
+  the original owner of a reassigned task listed alongside the new one (m02, m03, m07).
+- **Nobody extracted m06's last-line item** ("I'll send out the notes this afternoon"); the author
+  missed it in the first gold draft too.
+- Changed-deadline traps (m06): Granite off fell for both (iOS "Monday", listing "Wednesday"); Phi
+  and Bonsai off didn't.
