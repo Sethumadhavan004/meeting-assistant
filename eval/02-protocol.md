@@ -23,8 +23,11 @@ _Frozen before the first scored run. Any change after that is logged at the bott
 | No chat history | every request is a fresh single-turn call |
 | Same context size | `CTX = 4096` for Ollama (`num_ctx`) and llama-server (`BONSAI_CTX`) |
 | Same output cap | `MAX_TOKENS = 3000` |
-| Same sampling | temperature 0 for every model (see below) |
-| CPU only | Ollama runs CPU-only on this machine; Bonsai started with `BONSAI_NGL=0` |
+| Same sampling | temperature 0 for every model (see below); presence penalty 0 on llama-server (Ollama's default) |
+| CPU only | Ollama drops the iGPU (its log: `inference compute: cpu`); Bonsai started with `--device none -ngl 0` via `scripts/start_bonsai.ps1` |
+| Same threads | 4 = all physical cores, for both runtimes |
+| Same model parts | Bonsai's vision projector not loaded (`/props` → `vision: false`) |
+| One request at a time | llama-server `-np 1`; the runner sends requests one by one |
 | One model in RAM at a time | Ollama models unloaded after each batch (`keep_alive: 0`); Bonsai server stopped before Ollama runs |
 | Clean machine | browser closed; idle RAM recorded with `eval_runner.py baseline` |
 | No prompt caching | `cache_prompt: false` on llama-server, so prompt speed is measured every time |

@@ -1,0 +1,5 @@
+run_id,timestamp,model,backend,quant,thinking,prompt_id,rep,ctx,temperature,prompt_tok,prompt_tps,out_tok,gen_tps,thinking_chars,answer_chars,wall_s,load_s,finish,ram_peak_used_gb,ram_min_avail_gb,ram_delta_gb,cpu_avg_pct,bw_ceiling_tps,pct_of_ceiling
+bonsai_off_s01_trivial_r1_185819,2026-10-24T18:58:25,bonsai,llama,PQ2_0,off,s01_trivial,1,4096,0.0,41,30.44,24,8.11,0,74,6.3,0,stop,5.68,1.68,,60.8,18.6,43.6
+granite_off_s01_trivial_r1_185826,2026-10-24T18:58:40,granite,ollama,Q4_K_M,off,s01_trivial,1,4096,0.0,46,49.51,22,7.53,0,70,14.0,8.05,stop,7.24,0.12,,59.2,9.5,79.3
+bonsai_on_s01_trivial_r1_185900,2026-10-24T18:59:46,bonsai,llama,PQ2_0,on,s01_trivial,1,4096,0.0,39,30.6,333,7.86,1054,74,45.6,0,stop,4.88,2.49,,94.1,18.6,42.3
+granite_on_s01_trivial_r1_185946,2026-10-24T19:00:43,granite,ollama,Q4_K_M,on,s01_trivial,1,4096,0.0,46,35.01,326,6.88,1206,63,56.7,5.9,stop,7.15,0.22,,91.9,9.5,72.5

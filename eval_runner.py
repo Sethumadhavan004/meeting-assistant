@@ -42,9 +42,10 @@ TIMEOUT_S = 1800
 
 # file_gb: check the real .gguf / ollama size and correct it - it drives the % of bandwidth ceiling
 MODELS = {
-    "granite": {"backend": "ollama", "name": "granite4.2:3b", "quant": "Q4_K_M", "file_gb": 2.2, "can_think": True},
-    "phi":     {"backend": "ollama", "name": "phi4-mini",     "quant": "Q4_K_M", "file_gb": 2.5, "can_think": False},
-    "bonsai":  {"backend": "llama",  "name": "bonsai-4b",     "quant": "PQ2_0",  "file_gb": 1.1, "can_think": True},
+    # sizes measured 2026-10-24 (decimal GB, to match BANDWIDTH_GBPS): Ollama /api/tags, Bonsai .gguf on disk
+    "granite": {"backend": "ollama", "name": "granite4.2:3b", "quant": "Q4_K_M", "file_gb": 2.244, "can_think": True},
+    "phi":     {"backend": "ollama", "name": "phi4-mini",     "quant": "Q4_K_M", "file_gb": 2.492, "can_think": False},
+    "bonsai":  {"backend": "llama",  "name": "bonsai-4b",     "quant": "PQ2_0",  "file_gb": 1.146, "can_think": True},
 }
 
 ROOT = pathlib.Path(__file__).parent
