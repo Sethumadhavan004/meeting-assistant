@@ -1,4 +1,4 @@
-﻿# Eval: small open models for meeting action items on an 8 GB CPU-only laptop
+# Eval: small open models for meeting action items on an 8 GB CPU-only laptop
 
 **Research question:** on an 8 GB CPU-only laptop, which small open model gives the best
 action-item quality per second and per GB, and what does "thinking" mode cost?
@@ -28,7 +28,7 @@ analysis can't corrupt the evidence.
 - `../runs.csv`: one row per run (speed, tokens, RAM, CPU), written by `eval_runner.py`
 - `../outputs/<run_id>.md`: full prompt, thinking and answer for each run
 - `../scores.csv`: per-run quality scores against `gold.md`
-- `raw/manual/`: the first hand-typed runs (Oct 22â€“23, 2026). Historical only, not mixed into `runs.csv`
+- `raw/manual/`: the first hand-typed runs (Oct 22–23, 2026). Historical only, not mixed into `runs.csv`
 
 ## How to reproduce
 
