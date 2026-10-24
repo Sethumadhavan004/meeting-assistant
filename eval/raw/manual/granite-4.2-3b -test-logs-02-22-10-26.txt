@@ -1,0 +1,216 @@
+   ollama run granite4.2:3b --verbose   # did not use - /set parameter num_ctx 2048
+
+Test prompt: Extract action items from this meeting as a list: owner, task, deadline.
+
+Priya: We need the pricing page live before the Friday demo.
+Arjun: I can do the copy by Wednesday, but design is blocked on the new logo.
+Priya: Meena, can you send the logo files today?
+Meena: Yes, by 5pm. Also someone needs to email the client to confirm the demo time.
+Arjun: I'll do that tomorrow morning.
+
+
+
+
+
+PS D:\> ollama run granite4.2:3b --verbose
+pulling manifest
+pulling 20e436143017: 100% ▕██████████████████████████████████████████████████████████████████████████████████████████████▏ 2.2 GB
+pulling 0946fa725932: 100% ▕██████████████████████████████████████████████████████████████████████████████████████████████▏  417 B
+verifying sha256 digest
+writing manifest
+success
+>>> What is the capital of France?
+Thinking...
+Okay, the user asked, What is the capital of France?
+
+I need to answer directly. The capital of France is Paris.
+
+I should keep it simple and clear. No need for extra info unless they ask.
+
+Just state Paris.
+...done thinking.
+
+The capital of France is Paris.
+
+total duration:       11.0488686s
+load duration:        17.1206ms
+prompt eval count:    22 token(s)
+prompt eval duration: 818.709ms
+prompt eval rate:     26.87 tokens/s
+eval count:           64 token(s)
+eval duration:        10.194762s
+eval rate:            6.28 tokens/s
+>>> Explain what is quantum entanglement.
+Thinking...
+Okay, the user asked me to explain quantum entanglement after previously asking about the capital of France. I should keep it clear and simple,
+avoiding jargon. They might be a student learning basic concepts or someone curious about quantum physics. I'll define entanglement with everyday
+analogies, mention key points like non-locality and measurement, and note real-world applications if needed. Make sure it's accurate but easy to
+understand.
+...done thinking.
+
+Quantum entanglement is a strange but well-established phenomenon in quantum physics where two or more particles become linked in such a way that
+their states are inseparable—no matter how far apart they are placed. Once entangled, measuring the state of one particle instantly determines the
+state of the other(s), even if they are on opposite sides of the universe.
+
+Here’s a simple way to understand it (without getting too technical):
+
+- Imagine you have two magical dice that are entangled. If you roll one die and see it show a "3," you immediately know the other die will also show a
+"3" (or whatever the paired outcome is), even if you’re on the Moon while holding the first die.
+- The entanglement doesn’t work like regular objects (e.g., two regular dice that you could predict separately). Instead, their properties (like spin,
+polarization, or quantum "orientation") are linked in an inseparable way, described by the rules of quantum mechanics.
+- Crucially, **measurement of one particle doesn’t "send information" faster than light**—it only reveals a correlated result that was already linked.
+This respects Einstein’s principle that relativity forbids faster-than-light signaling, even though the outcomes appear instantly correlated.
+
+Key points to remember:
+- Entanglement arises from quantum rules, not classical physics.
+- It’s verified by experiments (e.g., Bell test experiments) and is a core part of quantum information science.
+- It’s not about sending messages; it’s about the deep, non-local connection between particles described by quantum theory.
+- Real-world examples include quantum cryptography (for secure communication), quantum computing (where entangled states enable powerful processing),
+and emerging technologies like quantum networks.
+
+If you’d like a more detailed explanation, a visual analogy, or how it relates to everyday concepts (like coins or light), just let me know—I’ll keep
+it clear and accurate.
+
+*(Note: This explanation avoids unnecessary math while staying physically correct.)*
+
+total duration:       1m20.7105814s
+load duration:        12.5511ms
+prompt eval count:    50 token(s)
+prompt eval cached:   21 token(s)
+prompt eval duration: 1.05681s
+prompt eval rate:     27.44 tokens/s
+eval count:           533 token(s)
+eval duration:        1m19.613076s
+eval rate:            6.69 tokens/s
+>>> Extract action items from this meeting as a list: owner, task, deadline.Priya: We need the pricing page live before the Friday demo.Arjun: I can do the
+... copy by Wednesday, but design is blocked on the new logo.Priya: Meena, can you send the logo files today?Meena: Yes, by 5pm. Also someone needs to email
+...  the client to confirm the demo time.Arjun: I'll do that tomorrow morning.
+...
+Thinking...
+Okay, the user wants me to extract action items from the meeting notes as a list with owner, task, deadline. They provided a detailed meeting
+transcript with multiple speakers.
+
+Let me parse each line carefully:
+
+- Priya: "We need the pricing page live before the Friday demo."
+  - Task: Get pricing page live before Friday demo.
+  - Owner: Priya (implied from context, but the note says "Priya: ..." so owner is Priya)
+  - Deadline: Before Friday demo. Need to specify a concrete deadline? The original says "before the Friday demo" so deadline could be "by Friday demo
+date" or "before Friday demo". I'll use "before Friday demo" as deadline since it's clear.
+
+- Arjun: "I can do the copy by Wednesday, but design is blocked on the new logo."
+  - Task: Complete copy by Wednesday.
+  - Owner: Arjun.
+  - Deadline: Wednesday.
+  - Also design is blocked on new logo, but that's not a direct action item; the action is getting logo.
+
+- Priya: "Meena, can you send the logo files today?"
+  - Task: Send logo files.
+  - Owner: Meena.
+  - Deadline: Today (but need a specific time? The note says "by 5pm". So deadline is "by 5pm today").
+
+- Meena: "Yes, by 5pm."
+  - This confirms the deadline for Priya's request, but the action item is already captured above.
+
+- Also someone needs to email the client to confirm the demo time.
+  - Task: Email client to confirm demo time.
+  - Owner: Not explicitly stated, but from context: Arjun says "I'll do that tomorrow morning." So owner is Arjun.
+  - Deadline: Tomorrow morning (but need more precise? The instruction says deadline as a date/time; "tomorrow morning" is acceptable but maybe better
+to say "by tomorrow morning" or "within tomorrow morning". I'll use "tomorrow morning" as deadline).
+
+- Arjun: "I'll do that tomorrow morning."
+  - This confirms the owner for the email task is Arjun, deadline tomorrow morning.
+
+Now I need to produce a clean list with owner, task, deadline for each distinct action item.
+
+Let's list distinct actionable items:
+
+1. Owner: Priya, Task: Get pricing page live before Friday demo, Deadline: before Friday demo (or "by Friday demo date"? I'll use "before Friday demo"
+as deadline string).
+
+2. Owner: Arjun, Task: Complete copy by Wednesday, Deadline: Wednesday.
+
+3. Owner: Meena, Task: Send logo files by 5pm today, Deadline: by 5pm today.
+
+4. Owner: Arjun (implied from his statement), Task: Email client to confirm demo time, Deadline: tomorrow morning.
+
+Check if any duplicates or missing.
+
+The meeting also says "Priya: We need the pricing page live before the Friday demo." That's a task for Priya (or whoever is responsible). Since Priya
+made the request, owner is Priya.
+
+Arjun's copy task is clear.
+
+Meena's task is clear.
+
+The email task is covered by Arjun's statement.
+
+All good.
+
+Now format as list with owner, task, deadline.
+
+I'll use plain text list, each item as:
+
+Owner: ..., Task: ..., Deadline: ...
+
+Or maybe as:
+
+- Owner: Priya
+  Task: Get pricing page live before Friday demo
+  Deadline: before Friday demo
+
+But the instruction says "Extract action items from this meeting as a list: owner, task, deadline."
+
+So a clean list like:
+
+1. Owner: Priya, Task: Get pricing page live before Friday demo, Deadline: before Friday demo
+2. Owner: Arjun, Task: Complete copy by Wednesday, Deadline: Wednesday
+3. Owner: Meena, Task: Send logo files by 5pm today, Deadline: by 5pm today
+4. Owner: Arjun, Task: Email client to confirm demo time, Deadline: tomorrow morning
+
+That matches the required format.
+
+Make sure deadlines are clear. Use the exact phrasing from the notes where possible.
+
+For #3 deadline: "by 5pm today" is fine.
+
+For #4 deadline: "tomorrow morning" – maybe specify "by tomorrow morning" or just "tomorrow morning". I'll use "tomorrow morning" as deadline.
+
+Alternatively, could say "Deadline: tomorrow morning".
+
+I'll keep as "tomorrow morning" in the deadline field.
+
+Now produce the answer.
+...done thinking.
+
+Here is the extracted action items list formatted as requested (owner, task, deadline):
+
+1. Owner: Priya
+   Task: Get the pricing page live before the Friday demo
+   Deadline: before Friday demo
+
+2. Owner: Arjun
+   Task: Complete the copy by Wednesday
+   Deadline: Wednesday
+
+3. Owner: Meena
+   Task: Send the new logo files by 5 pm today
+   Deadline: by 5 pm today
+
+4. Owner: Arjun
+   Task: Email the client to confirm the demo time
+   Deadline: tomorrow morning
+
+All items are derived directly from the meeting notes, with clear owners, tasks, and specific deadlines as stated. No extra text or assumptions beyond
+the provided context.
+
+total duration:       3m37.5910681s
+load duration:        12.4346ms
+prompt eval count:    600 token(s)
+prompt eval cached:   49 token(s)
+prompt eval duration: 14.214282s
+prompt eval rate:     38.76 tokens/s
+eval count:           1199 token(s)
+eval duration:        3m23.219618s
+eval rate:            5.90 tokens/s
+>>> /exit

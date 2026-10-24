@@ -1,0 +1,10 @@
+# Model weights are multi-GB; download them, don't commit them
+models/
+*.gguf
+
+# Local Python environment (rebuild with: python -m venv .venv; pip install -r requirements.txt)
+.venv/
+__pycache__/
+
+# Private drafts and notes (manual logs are copied into eval/raw/manual/)
+Hacktoberfest-2026/

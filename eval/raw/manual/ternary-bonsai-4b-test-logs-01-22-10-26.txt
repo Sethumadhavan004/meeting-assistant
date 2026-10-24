@@ -1,0 +1,533 @@
+Extract action items from this meeting as a list: owner, task, deadline.
+
+Priya: We need the pricing page live before the Friday demo.
+Arjun: I can do the copy by Wednesday, but design is blocked on the new logo.
+Priya: Meena, can you send the logo files today?
+Meena: Yes, by 5pm. Also someone needs to email the client to confirm the demo time.
+Arjun: I'll do that tomorrow morning.
+
+
+
+
+
+
+
+PS D:\projects\meeting-assistant\models\Bonsai-demo> $env:BONSAI_NGL = "0"
+PS D:\projects\meeting-assistant\models\Bonsai-demo> .\scripts\run_llama.ps1 -p "What is the capital of France?"
+[ERR] GGUF model not found for Bonsai-2-27B in D:\projects\meeting-assistant\models\Bonsai-demo\models\bonsai2-gguf\27B
+      Run .\setup.ps1 first.
+PS D:\projects\meeting-assistant\models\Bonsai-demo> $env:BONSAI_MODEL = "4B"
+PS D:\projects\meeting-assistant\models\Bonsai-demo> .\scripts\run_llama.ps1 -p "What is the capital of France?"
+[OK] Model:  D:\projects\meeting-assistant\models\Bonsai-demo\models\bonsai2-gguf\4B\Ternary-Bonsai-2-4B-PQ2_0.gguf
+[OK] Binary: D:\projects\meeting-assistant\models\Bonsai-demo\bin\vulkan\llama-cli.exe
+[OK] Using -ngl 0, -c 8192 (override with BONSAI_CTX, 0 = auto)
+
+
+Loading model...
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b10787-73bfe6cc4
+model      : D:\projects\meeting-assistant\models\Bonsai-demo\models\bonsai2-gguf\4B\Ternary-Bonsai-2-4B-PQ2_0.gguf
+ftype      : PQ2_0 - 2.13 bpw (group 128)
+modalities : text
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read <file>        add a text file
+  /glob <pattern>     add text files using globbing pattern
+
+
+
+> What is the capital of France?
+
+[Start thinking]
+
+Thinking Process:
+
+1.  **Identify the core question:** The user is asking "What is the capital of France?"
+2.  **Access knowledge:** Retrieve factual information about France's capital city.
+3.  **Verify the fact:** The capital of France is Paris.
+4.  **Formulate the answer:** State the answer clearly and concisely.
+5.  **Final Output:** "Paris" or "The capital of France is Paris."
+[End thinking]
+
+The capital of France is Paris.
+
+[ Prompt: 19.4 t/s | Generation: 5.9 t/s ]
+
+
+Exiting...
+PS D:\projects\meeting-assistant\models\Bonsai-demo> .\scripts\run_llama.ps1 -p "Explain what is quantum entanglement."
+[OK] Model:  D:\projects\meeting-assistant\models\Bonsai-demo\models\bonsai2-gguf\4B\Ternary-Bonsai-2-4B-PQ2_0.gguf
+[OK] Binary: D:\projects\meeting-assistant\models\Bonsai-demo\bin\vulkan\llama-cli.exe
+[OK] Using -ngl 0, -c 8192 (override with BONSAI_CTX, 0 = auto)
+
+
+Loading model...
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b10787-73bfe6cc4
+model      : D:\projects\meeting-assistant\models\Bonsai-demo\models\bonsai2-gguf\4B\Ternary-Bonsai-2-4B-PQ2_0.gguf
+ftype      : PQ2_0 - 2.13 bpw (group 128)
+modalities : text
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read <file>        add a text file
+  /glob <pattern>     add text files using globbing pattern
+
+
+
+> Explain what is quantum entanglement.
+
+[Start thinking]
+
+Here's a thinking process that leads to the explanation of quantum entanglement:
+
+1.  **Deconstruct the Request:**
+    *   **Topic:** Quantum Entanglement.
+    *   **Goal:** Explain what it is.
+    *   **Target Audience:** General audience (needs to be accessible but accurate, avoiding overly dense jargon without explanation).
+
+2.  **Initial Brainstorming & Key Concepts:**
+    *   What is it? Two or more particles linked together.
+    *   What happens when you measure one? The other changes instantaneously.
+    *   Does it violate relativity? (Speed of light limit).
+    *   Famous analogy: Spooky action at a distance (Einstein).
+    *   Bell's Inequality (optional but good for depth).
+    *   Applications: Quantum computing, cryptography.
+    *   Key properties: Superposition, correlation, non-locality.
+
+3.  **Structuring the Explanation:**
+    *   **Introduction:** Simple definition (hook the reader), Einstein's quote ("spooky action").
+    *   **The Core Mechanism:** How does it work? (Parties, states, measurement).
+    *   **A Concrete Example:** The coin analogy or the particle spin analogy is standard and effective. Let's use electron spin or photon polarization.
+    *   **The "Spooky" Aspect:** Instantaneous connection vs. speed of light. Addressing the no-communication theorem (can't use it to send messages faster than light).
+    *   **Why is it Important?** Applications and significance in physics.
+    *   **Summary:** A quick wrap-up.
+
+4.  **Drafting the Content - Section by Section:**
+
+    *   *Intro:* Start with the definition. It's a phenomenon where particles become linked. Mention Einstein immediately because he coined the reaction to it.
+    *   *The Analogy:* Use the "Gloves" or "Spins" analogy.
+        *   *Option A (Coins):* If I have a coin that is heads, and you have one that is tails. If I flip, it lands heads, yours is instantly tails. Problem: They are already opposite? That sounds classical. Quantum needs superposition.
+        *   *Option B (Spins/Superposition):* Before measurement, the particle doesn't have a definite state (it's 50/50). Measurement makes it decide, and the other becomes opposite *instantly*. This is crucial. I need to make sure the "Superposition" part is clear.
+    *   *The Physics:* Explain that properties aren't determined until measured. This is non-locality.
+    *   *Relativity Check:* Address Einstein's objection. Can we send info faster than light? No. The results are random. So, no violation of causality.
+    *   *Applications:* Where do we see this? Quantum computers (qubits), quantum key distribution (QKD).
+    *   *Conclusion:* Why should we care? Fundamental understanding of the universe.
+
+5.  **Refining and Polishing (Self-Correction during drafting):**
+    *   *Correction:* Avoid saying "communication happens." Instead, say "correlation is established."
+    *   *Correction:* Ensure I distinguish between classical correlation (pre-determined) and quantum correlation (determined at measurement). This is the "Bell Test" implication.
+    *   *Tone Check:* Keep it engaging but precise. Avoid saying "magic." Use terms like "correlated state" or "entangled state."
+    *   *Analogy Review:* The gloves analogy implies they knew their state beforehand. I must emphasize that *quantum* particles don't know their state until measured. So, the gloves analogy is slightly flawed unless modified to say "you don't put them in boxes until you measure." Let's use the "Mysterious Pair" or "Spin" analogy and explicitly mention "superposition."
+
+6.  **Finalizing the Output (similar to the provided good response):**
+    *   **Headline:** Clear and bold.
+    *   **Definition:** One paragraph.
+    *   **The Analogy:** The Coin/Spin example with the "Before vs. After" distinction.
+    *   **Key Characteristic:** Instantaneous correlation + Randomness.
+    *   **The Speed of Light Question:** Crucial to clarify it doesn't break relativity.
+    *   **Real-world use:** Quantum tech.
+    *   **Summary:** Wrap up.
+
+7.  **Final Review against constraints:** Does this explain *what* it is? Yes. Is it accurate? Yes. Is it understandable? Hopefully. (Proceed to generate output).
+
+*(Self-Correction Note during final output generation)*: Make sure to mention that the outcome is random for the observer, but correlated between observers. This prevents confusion about "controlling" the outcome.
+
+8.  **Final Polish:** Add formatting (bolding, bullet points) for readability.
+
+**(End of Thought Process)**
+[End thinking]
+
+**Quantum entanglement** is a phenomenon in quantum mechanics where a pair (or group) of particles becomes linked in such a way that the quantum state of one particle cannot be described independently of the state of the others.
+
+It creates an instantaneous connection between the particles, regardless of the distance separating them.
+
+Here is a breakdown of what this means, how it works, and why it is so fascinating.
+
+---
+
+### 1. The Core Concept: "Spooky Action at a Distance"
+When physicists discover entanglement, they often refer to it as **"spooky action at a distance"** (a phrase coined by Albert Einstein).
+
+Imagine you have two magic coins. Instead of flipping them separately, you pair them up so that their results are always connected. However, here is the key:
+*   **Before you look:** Neither coin shows Heads or Tails; they exist in a blurry state of "both at once" (a phenomenon called **superposition**).
+*   **The Moment of Measurement:** If you flip your coin and it lands on **Heads**, your partner's coin instantly becomes **Tails**, even if they are light-years apart.
+*   **The Result:** You know what the other one is *without* needing to send a message. It happens instantly.
+
+### 2. The Critical Difference from Classical Physics
+To understand entanglement, you have to look at how classical objects differ from quantum ones:
+
+*   **Classical Objects:** If you put two gloves in separate boxes (one left, one right) and send them across the galaxy, the gloves are already defined. You opened your box and saw a left glove; you knew the other was a right glove immediately because the state was fixed before leaving home.
+*   **Quantum Entanglement:** The gloves (the particles) are *not* fixed until they are opened (measured). The moment you open your box, the universe determines the state of your partner's box instantaneously, even though no information was sent from point A to point B.
+
+### 3. Does it Break the Speed of Light Limit?
+This is the most common question. Since Einstein worried about the speed of light as the universal speed limit, what about "spooky action" happening instantly across space?
+
+**The Short Answer:** No, it doesn't break the speed of light rule for *communication*.
+
+Here's why:
+Because the result of your measurement is random, you cannot use entanglement to send a message. If my coin flips Heads 50% of the time and Tails 50% of the time, I can't force it to be Heads to tell you "Hello." Therefore, while the *correlation* happens instantly, *information* is not transferred faster than light.
+
+### 4. Real-World Applications
+Quantum entanglement isn't just theoretical. It is the engine behind emerging technologies:
+
+*   **Quantum Computing:** These computers use entangled qubits (quantum bits) to perform complex calculations simultaneously. If one part of the calculation fails or changes, the entire system reacts in a synchronized way that classical computers cannot emulate.
+*   **Quantum Cryptography:** It allows for secure communication. If someone tries to eavesdrop on an encrypted signal, they will alter the entangled state, immediately revealing their presence to the users.
+*   **Quantum Teleportation:** While not teleporting *matter*, this technology allows for the "teleportation" of quantum information (state) from one location to another using entanglement.
+
+### Summary
+**Quantum entanglement** is a property where particles share a single existence that spans across space. Measuring one instantly determines the state of the other. It demonstrates that the universe is fundamentally interconnected in a way that defies our everyday intuition, but does so without violating the laws of physics regarding information travel.
+
+[ Prompt: 23.5 t/s | Generation: 6.0 t/s ]
+
+
+Exiting...
+PS D:\projects\meeting-assistant\models\Bonsai-demo> .\scripts\run_llama.ps1 -p "You are a helpful meeting assistant. I want you to summarize the following conversation, Extract action items from this meeting as a list: owner, task, deadline."
+[OK] Model:  D:\projects\meeting-assistant\models\Bonsai-demo\models\bonsai2-gguf\4B\Ternary-Bonsai-2-4B-PQ2_0.gguf
+[OK] Binary: D:\projects\meeting-assistant\models\Bonsai-demo\bin\vulkan\llama-cli.exe
+[OK] Using -ngl 0, -c 8192 (override with BONSAI_CTX, 0 = auto)
+
+
+Loading model...
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b10787-73bfe6cc4
+model      : D:\projects\meeting-assistant\models\Bonsai-demo\models\bonsai2-gguf\4B\Ternary-Bonsai-2-4B-PQ2_0.gguf
+ftype      : PQ2_0 - 2.13 bpw (group 128)
+modalities : text
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read <file>        add a text file
+  /glob <pattern>     add text files using globbing pattern
+
+
+
+> You are a helpful meeting assistant. I want you to summarize the following conversation, Extract action items from this meeting as a list: owner, task, deadline.
+
+[Start thinking]
+
+Thinking Process:
+
+1.  **Analyze the Request:**
+    *   Role: Helpful meeting assistant.
+    *   Task: Summarize a conversation (provided by the user) and extract action items.
+    *   Output Format: List of action items with three specific fields: owner, task, deadline.
+    *   Input: The user has *not* provided the conversation yet. They said "summarize the following conversation" but didn't paste it.
+
+2.  **Identify the Missing Information:**
+    *   I need the actual conversation transcript or notes to proceed with summarization and action item extraction.
+
+3.  **Formulate the Response:**
+    *   Acknowledge the role (meeting assistant).
+    *   Politely inform the user that the conversation content is missing.
+    *   Invite them to provide the text/transcript.
+    *   Reiterate what I will do once received (summarize + extract action items with owner, task, deadline).
+
+4.  **Drafting the Response:**
+    *   "Sure, I'd be happy to help you summarize that and create an action item list."
+    *   "However, you haven't provided the conversation yet."
+    *   "Please paste the text or notes of the meeting here."
+    *   "Once you provide it, I will output the summary and the action items in the requested format."
+
+5.  **Refining for Tone and Clarity:**
+    *   Keep it professional and helpful.
+    *   Make it clear that I'm ready to receive the input.
+
+6.  **Final Decision:**
+    *   State readiness but point out the missing input.
+    *   Provide a placeholder example of what the output will look like (optional but helpful).
+    *   Keep it concise.
+
+    *(Self-Correction)*: Wait, simply asking for the text is best. I shouldn't generate fake examples unless asked, but confirming the format is good.
+
+    *Revised Plan:*
+    1. Confirm willingness to help.
+    2. Note that the content is missing.
+    3. Ask user to provide the content.
+
+    *(Wait, one more check)*: Is it possible the user expects me to know a specific conversation? No, this is a stateless interaction. I definitely need the text.
+
+    *Final Output Structure:*
+    "I'm ready to help! However, you haven't included the conversation transcript or notes yet. Please paste them below, and I will immediately summarize the meeting and extract the action items (Owner, Task, Deadline) as requested."
+[End thinking]
+
+I am ready to help you with that! However, you haven't provided the conversation transcript or notes yet.
+
+Please paste the content of the meeting here. Once you provide it, I will:
+1. Summarize the key points.
+2. Extract action items formatted as a list with **Owner**, **Task**, and **Deadline**.
+
+[ Prompt: 10.1 t/s | Generation: 6.1 t/s ]
+
+
+Exiting...
+PS D:\projects\meeting-assistant\models\Bonsai-demo>
+PS D:\projects\meeting-assistant\models\Bonsai-demo> Priya: We need the pricing page live before the Friday demo.
+Priya: : The term 'Priya:' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a
+path was included, verify that the path is correct and try again.
+At line:1 char:1
++ Priya: We need the pricing page live before the Friday demo.
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Priya::String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\projects\meeting-assistant\models\Bonsai-demo> Arjun: I can do the copy by Wednesday, but design is blocked on the new logo.
+Arjun: : The term 'Arjun:' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a
+path was included, verify that the path is correct and try again.
+At line:1 char:1
++ Arjun: I can do the copy by Wednesday, but design is blocked on the n ...
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Arjun::String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\projects\meeting-assistant\models\Bonsai-demo> Priya: Meena, can you send the logo files today?
+Priya: : The term 'Priya:' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a
+path was included, verify that the path is correct and try again.
+At line:1 char:1
++ Priya: Meena, can you send the logo files today?
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Priya::String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\projects\meeting-assistant\models\Bonsai-demo> Meena: Yes, by 5pm. Also someone needs to email the client to confirm the demo time.
+Meena: : The term 'Meena:' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a
+path was included, verify that the path is correct and try again.
+At line:1 char:1
++ Meena: Yes, by 5pm. Also someone needs to email the client to confirm ...
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Meena::String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\projects\meeting-assistant\models\Bonsai-demo> .\scripts\run_llama.ps1 -p "You are a helpful meeting assistant. Extract action items from this meeting as a list: owner, task, deadline. Extract action items from this meeting as a list: owner, task, deadline. Priya: We need the pricing page live before the Friday demo. Arjun: I can do the copy by Wednesday, but design is blocked on the new logo. Priya: Meena, can you send the logo files today? Meena: Yes, by 5pm. Also someone needs to email the client to confirm the demo time. Arjun: I'll do that tomorrow morning."
+[OK] Model:  D:\projects\meeting-assistant\models\Bonsai-demo\models\bonsai2-gguf\4B\Ternary-Bonsai-2-4B-PQ2_0.gguf
+[OK] Binary: D:\projects\meeting-assistant\models\Bonsai-demo\bin\vulkan\llama-cli.exe
+[OK] Using -ngl 0, -c 8192 (override with BONSAI_CTX, 0 = auto)
+
+
+Loading model...
+
+▄▄ ▄▄
+██ ██
+██ ██  ▀▀█▄ ███▄███▄  ▀▀█▄    ▄████ ████▄ ████▄
+██ ██ ▄█▀██ ██ ██ ██ ▄█▀██    ██    ██ ██ ██ ██
+██ ██ ▀█▄██ ██ ██ ██ ▀█▄██ ██ ▀████ ████▀ ████▀
+                                    ██    ██
+                                    ▀▀    ▀▀
+
+build      : b10787-73bfe6cc4
+model      : D:\projects\meeting-assistant\models\Bonsai-demo\models\bonsai2-gguf\4B\Ternary-Bonsai-2-4B-PQ2_0.gguf
+ftype      : PQ2_0 - 2.13 bpw (group 128)
+modalities : text
+
+available commands:
+  /exit or Ctrl+C     stop or exit
+  /regen              regenerate the last response
+  /clear              clear the chat history
+  /read <file>        add a text file
+  /glob <pattern>     add text files using globbing pattern
+
+
+
+> You are a helpful meeting assistant. Extract action items from this meeting as a list: owner, task, deadline. Extract action items from this meeting as a list: owner, task, deadline. Priya: We need the pricing page live before the Friday demo. Arjun: I can do the copy by Wednesday, but design is blocked on the new logo. Priya: Meena, can you send the logo files today? Meena: Yes, by 5pm. Also someone needs to email the client to confirm the demo time. Arjun: I'll do that tomorrow morning.
+
+[Start thinking]
+
+Thinking Process:
+
+1.  **Analyze the Request:**
+    *   Role: Helpful meeting assistant.
+    *   Task: Extract action items from the provided meeting transcript.
+    *   Output Format: A list containing "owner", "task", and "deadline" for each action item.
+    *   Input Text: A short dialogue between Priya, Arjun, and Meena regarding a project (pricing page, demo, logo).
+
+2.  **Analyze the Input Text:**
+    *   *Priya:* "We need the pricing page live before the Friday demo." -> Task: Pricing page live. Deadline: Before Friday demo. Owner: Implied Priya/Team, but usually assigned to whoever is doing it. Later Arjun says he can do copy, Meena says she needs to send logo. Let's look for ownership. Actually, Priya says "We need", suggesting a collective goal. But subsequent assignments are specific. I need to infer owners based on context or assign generally if not specified.
+    *   *Arjun:* "I can do the copy by Wednesday, but design is blocked on the new logo." -> Task: Do copy. Deadline: Wednesday. Owner: Arjun.
+    *   *Meena (to Priya):* "Yes, by 5pm." (Response to "send the logo files today"). Wait, text says "Priya: Meena, can you send the logo files today?" -> Meena: "Yes, by 5pm." -> Task: Send logo files. Deadline: Today by 5pm. Owner: Meena.
+    *   *Priya:* "Also someone needs to email the client to confirm the demo time." -> Task: Email client to confirm demo time. Deadline: Not specified immediately (implied before/after next meeting or just general requirement), but later Arjun speaks.
+    *   *Arjun:* "I'll do that tomorrow morning." -> Task: Email client to confirm demo time. Deadline: Tomorrow morning. Owner: Arjun.
+
+3.  **Extract Action Items:**
+
+    *   **Item 1:** Send logo files.
+        *   Owner: Meena
+        *   Task: Send logo files
+        *   Deadline: Today by 5pm
+
+    *   **Item 2:** Do copy for pricing page.
+        *   Owner: Arjun
+        *   Task: Create/Write copy
+        *   Deadline: Wednesday
+
+    *   **Item 3:** Email client to confirm demo time.
+        *   Owner: Arjun (based on his response)
+        *   Task: Email client to confirm demo time
+        *   Deadline: Tomorrow morning
+
+    *   **Item 4:** Pricing page live before Friday demo.
+        *   This is a dependency/goal rather than a specific task assigned to someone yet, but since Arjun does copy and Meena does logo, the pricing page involves design. Priya says "We need...". However, looking for explicit action items with owners.
+        *   Actually, looking at the first statement: "We need the pricing page live before the Friday demo." This is a constraint on the final delivery. Is it an action item? Yes, but who owns it? It depends on the other tasks (copy + design + logo). However, usually, we extract the specific assignments.
+        *   Let's refine. The prompt asks to "Extract action items from this meeting".
+        *   Action 1: Send logo files (Meena, Today by 5pm).
+        *   Action 2: Write copy (Arjun, Wednesday).
+        *   Action 3: Email client confirm demo time (Arjun, Tomorrow morning).
+        *   Action 4: Pricing page live before Friday demo. Who owns this? It's the overall deliverable. Since specific tasks for "design" are blocked by logo, and copy is done by Arjun, the actual "live" delivery is dependent on all these. However, often in meeting summaries, we list the milestone. But the prompt asks for owner/task/deadline.
+        *   Let's see if we can attribute the "Pricing page live" task. Priya initiated it. But specific work is split. I will focus on the clear assignments first. If I include the Friday demo deadline as a master deadline for the pricing page, I might be adding too much interpretation.
+        *   Let's stick to the explicit assignments + the master deadline if applicable.
+        *   Wait, the "Pricing page live before the Friday demo" sets the ultimate deadline. But the specific tasks leading up to it are clearer.
+        *   Let's check the request again: "Extract action items... as a list: owner, task, deadline."
+        *   I should ensure all clear tasks are captured.
+
+    *   **Refining Item 4:** Is there an owner for "Pricing page live"? Priya mentioned it first. Usually, the person saying it might own it or it's a shared goal. Given Arjun does copy, and Meena does logo, someone must do the rest of the design (which is blocked on logo). It's safer to list the specific tasks where an owner is explicitly named or clearly implied by action verbs assigned to people.
+    *   However, "We need the pricing page live before the Friday demo" is a high-level task. I can treat "Make pricing page live" as the task with Priya as the owner (since she flagged it) and Deadline = Friday demo. But that overlaps with the sub-tasks.
+    *   Better approach: Extract the actionable items explicitly assigned.
+    *   1. Send logo files (Meena, Today by 5pm).
+    *   2. Do copy (Arjun, Wednesday).
+    *   3. Email client confirm demo time (Arjun, Tomorrow morning).
+
+    *   What about "Pricing page live"? It's a milestone. If I don't include it, I miss a high-level action. If I do include it, who is the owner? Priya is the one stating the requirement. But usually, "Action Item" implies work to be done.
+    *   Let's look at the flow. Arjun says he can do copy by Wednesday (so pricing page progress). Meena does logo today. The goal is Friday demo.
+    *   I will include the specific tasks assigned to individuals as they are actionable.
+    *   What about "Pricing page live"? It's a constraint. I'll stick to the specific tasks to avoid ambiguity on ownership, unless I assume Priya owns the overall timeline. Actually, looking at the first line "We need the pricing page live...", it sounds like a blocker/goal statement.
+    *   Let's create a comprehensive list based on what needs to be done.
+
+    *   **Action 1:**
+        *   Owner: Meena
+        *   Task: Send logo files
+        *   Deadline: Today by 5pm
+
+    *   **Action 2:**
+        *   Owner: Arjun
+        *   Task: Write copy for pricing page
+        *   Deadline: Wednesday
+
+    *   **Action 3:**
+        *   Owner: Arjun
+        *   Task: Email client to confirm demo time
+        *   Deadline: Tomorrow morning
+
+    *   **Is there an item for "Pricing Page Live"?**
+        *   If I must extract the "Pricing page live" requirement, I could list it as a task with Priya/Team and deadline Friday demo. However, since the prompt asks to extract action items *from the meeting*, and the meeting concludes with specific assignments, listing the assignments is more actionable. But the first sentence is a requirement.
+        *   Let's include it because it sets the critical path constraint that everyone must meet. But without an owner explicitly stated for the whole thing, it might be weak. However, Priya said "We need...".
+        *   Actually, usually in these extraction tasks, we focus on who does what. The first sentence is context for the others.
+        *   Wait, there is a constraint: "design is blocked on the new logo." This explains why the pricing page isn't ready yet (implied).
+        *   I will prioritize the explicit assignments.
+        *   Wait, looking at the first sentence again: "We need the pricing page live before the Friday demo." This is a task that needs to be achieved. Who owns the outcome? Likely the Product or Project Manager role which Priya might be taking on as the owner of that specific objective given her initiation. But to be safe and accurate to the text, I'll focus on the explicit tasks assigned to individuals to ensure high accuracy on ownership.
+        *   Actually, often "Pricing page live" is treated as a task if not fully broken down. But here it's broken down. I will stick to the specific assignments to ensure the "Owner" field is accurate based on the text.
+
+    *   Wait, let's re-read carefully: "Also someone needs to email the client..." -> Arjun takes ownership ("I'll do that").
+    *   So, 3 clear assignments exist.
+    *   Do I include the Pricing Page as a task? If I list it, Owner: Priya (or Team), Task: Make pricing page live, Deadline: Friday demo. It might be helpful to note the dependency. However, since Arjun does copy and Logo is blocked, "Make pricing page live" is the aggregate goal.
+    *   Decision: Include the specific tasks assigned. The overall goal is context. I will add the "Pricing Page Live" as a task with the deadline if it helps define the schedule, but since it's vague on ownership, I might skip it to avoid hallucination, or assign it to Priya as the owner of that requirement. Let's look at similar tasks. Usually, the person stating the deadline is considered the stakeholder, but the "Action Item" implies work.
+    *   Okay, I will stick to the 3 concrete actions assigned in the text. It is cleaner and less prone to error regarding ownership of the aggregate goal.
+
+    *   Wait, I missed one potential item. "Design is blocked on the new logo." -> This is an issue, not a task.
+    *   So, list:
+        1. Send Logo Files.
+        2. Write Copy.
+        3. Email Client (Demo Time).
+
+    *   Wait, looking at the first line again: "We need the pricing page live before the Friday demo." If I don't include this as an action item, is it incomplete? The prompt asks to "Extract action items". This implies things that need to be done. "Making the pricing page live" is the end result. It's a valid action item with a deadline. Who owns it? Priya (she raised the blocker/requirement). I think it's safer to include it as a high-level goal or combine it if possible.
+    *   Let's try to be comprehensive but accurate.
+    *   1. Meena: Send logo files. Deadline: Today 5pm.
+    *   2. Arjun: Write copy. Deadline: Wednesday.
+    *   3. Arjun: Email client confirm demo. Deadline: Tomorrow morning.
+    *   Is there a task "Publish Pricing Page"? The text says "We need the pricing page live...". It's a requirement. I'll add it as an item with Priya as owner (she set the constraint) and Friday Demo as deadline, noting it depends on others? No, keep it simple.
+    *   Actually, standard practice for meeting assistants: If someone says "We need X by Y", that's a constraint/requirement, not necessarily an action item unless someone agrees to own it. Arjun takes copy, Meena takes logo. The design work is blocked. So who owns the final live page? It's unclear.
+    *   I will prioritize the explicit assignments. They are the most actionable.
+
+    *   Wait, looking at the prompt instructions again: "Extract action items from this meeting as a list: owner, task, deadline."
+    *   I will generate 3 items based on clear assignments.
+    *   Item 1: Sender of logo files.
+    *   Item 2: Copywriter.
+    *   Item 3: Email confirmation.
+
+    *   Let's check if there are any other implied tasks.
+    *   "Meena, can you send the logo files today?" -> Task: Send logo files. Owner: Meena. Deadline: Today.
+    *   "I'll do that tomorrow morning." (Referring to email client) -> Task: Email client confirm demo time. Owner: Arjun. Deadline: Tomorrow morning.
+    *   "I can do the copy by Wednesday..." -> Task: Write copy. Owner: Arjun. Deadline: Wednesday.
+
+    *   Okay, those are the three clear ones. I'll format them clearly.
+
+4.  **Formatting:**
+    *   List format.
+    *   Include owner, task, deadline fields.
+
+5.  **Final Review:**
+    *   Does it capture the Friday demo context? It sets the context, but isn't a specific actionable item with a person assigned (other than "We"). I'll exclude it to avoid assuming ownership, or include it if I feel it's crucial. Actually, often the deadline for the final item is important. If I only list the sub-tasks, I don't know when to aim. But the deadlines are specific (Wednesday, Tomorrow).
+    *   I'll stick to the assigned tasks.
+
+    *   Wait, re-reading the first sentence: "Priya: We need the pricing page live before the Friday demo."
+    *   This is a constraint. It's not strictly an action item with a person to do it yet, because the design is blocked.
+    *   However, sometimes these are listed as "Action Item: Ensure Pricing Page is Live". Owner: Team/Priya. Deadline: Friday Demo.
+    *   Given the instruction "Extract action items", I will extract the specific work requested.
+
+    *   Wait, is there a task related to the "new logo"? No, just that design is blocked.
+    *   Okay, final plan: 3 items.
+
+6.  **Constructing Output:**
+    *   Use bold for keys or clear labels.
+    *   Ensure clarity.
+
+    *   Draft:
+        *   Owner: Meena | Task: Send logo files | Deadline: Today by 5pm
+        *   Owner: Arjun | Task: Write copy for pricing page | Deadline: Wednesday
+        *   Owner: Arjun | Task: Email client to confirm demo time | Deadline: Tomorrow morning
+
+    *   Wait, should I include the "Pricing Page Live" as a task? It's a requirement.
+    *   Let's check if the prompt implies capturing the goal. Usually, meeting summaries capture deliverables. But here it's split. I'll stick to the assigned tasks to avoid ambiguity on ownership of the final deliverable (since design is blocked).
+
+    *   One more check: "Arjun: I can do the copy by Wednesday..." -> This implies he knows about the pricing page context.
+    *   Okay, proceeding with the 3 assignments.
+
+7.  **Final Polish:** Check against constraints. "list: owner, task, deadline."
+    *   I will use a markdown list for readability.
+    *   Ensure the fields are distinct.
+
+    *   Refinement on "Today": The meeting is happening now (presumably). The text says "today". So deadline is "Today by 5pm".
+    *   Refinement on "Wednesday": Specific day.
+    *   Refinement on "Tomorrow morning": Specific time/day.
+
+    Let's write it out.
+[End thinking]
+
+*   **Owner:** Meena | **Task:** Send logo files | **Deadline:** Today by 5pm
+*   **Owner:** Arjun | **Task:** Write copy for pricing page | **Deadline:** Wednesday
+*   **Owner:** Arjun | **Task:** Email client to confirm demo time | **Deadline:** Tomorrow morning
+
+[ Prompt: 21.6 t/s | Generation: 5.3 t/s ]
+
+
+Exiting...
+PS D:\projects\meeting-assistant\models\Bonsai-demo>
