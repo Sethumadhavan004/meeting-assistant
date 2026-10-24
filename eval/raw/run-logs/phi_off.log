@@ -1,0 +1,9 @@
+-> phi_off_m01_pricing_r1_033846 ... 6.16 t/s, 140 tok, 33.4 s, peak 6.21 GB
+-> phi_off_m02_offsite_r1_033919 ... 6.27 t/s, 89 tok, 18.5 s, peak 6.13 GB
+-> phi_off_m03_newsletter_r1_033938 ... 6.27 t/s, 87 tok, 18.9 s, peak 6.13 GB
+-> phi_off_m04_workshop_r1_033957 ... 6.26 t/s, 112 tok, 22.1 s, peak 6.11 GB
+-> phi_off_m05_sprint_r1_034019 ... 6.04 t/s, 231 tok, 47.9 s, peak 5.82 GB
+-> phi_off_m06_launch_r1_034107 ... 5.75 t/s, 206 tok, 56.7 s, peak 5.96 GB
+-> phi_off_m07_postmortem_r1_034204 ... 5.61 t/s, 237 tok, 59.5 s, peak 6.12 GB
+-> phi_off_m08_hiring_r1_034304 ... 6.1 t/s, 122 tok, 27.7 s, peak 6.28 GB
+Done. Rows appended to runs.csv, full texts in outputs/.

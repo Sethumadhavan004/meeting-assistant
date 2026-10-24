@@ -1,0 +1,9 @@
+-> granite_off_m01_pricing_r1_033141 ... 7.08 t/s, 163 tok, 33.0 s, peak 5.84 GB
+-> granite_off_m02_offsite_r1_033214 ... 7.3 t/s, 97 tok, 17.5 s, peak 5.67 GB
+-> granite_off_m03_newsletter_r1_033231 ... 7.17 t/s, 110 tok, 20.3 s, peak 5.67 GB
+-> granite_off_m04_workshop_r1_033252 ... 7.28 t/s, 95 tok, 17.3 s, peak 5.67 GB
+-> granite_off_m05_sprint_r1_033309 ... 6.69 t/s, 342 tok, 61.3 s, peak 5.58 GB
+-> granite_off_m06_launch_r1_033411 ... 5.92 t/s, 477 tok, 103.0 s, peak 5.84 GB
+-> granite_off_m07_postmortem_r1_033554 ... 6.36 t/s, 419 tok, 84.3 s, peak 5.96 GB
+-> granite_off_m08_hiring_r1_033718 ... 6.79 t/s, 427 tok, 71.1 s, peak 6.02 GB
+Done. Rows appended to runs.csv, full texts in outputs/.

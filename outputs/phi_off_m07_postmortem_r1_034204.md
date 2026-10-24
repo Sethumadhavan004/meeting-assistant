@@ -1,0 +1,58 @@
+# phi_off_m07_postmortem_r1_034204
+
+## Prompt
+```
+Extract action items from this meeting as a list: owner, task, deadline.
+
+Muhil: Okay, let's do the postmortem for Saturday's outage. I'll keep it blameless. Goutham, can you walk us through the timeline?
+Goutham: Sure. At around 2:10 on Saturday, the payment service started timing out. The alert fired at 2:25, so fifteen minutes late. I got paged at 2:30 and we rolled back the config change at 3:05.
+Priya: Why did the alert take fifteen minutes?
+Goutham: The threshold was five percent errors over ten minutes. It should probably be shorter.
+Muhil: Okay. Goutham, can you change the alert window to two minutes?
+Goutham: Yes, I'll do that today.
+Eric: The bigger issue is that the config change went out without review.
+Darcy: That was me. I pushed it Friday evening because the partner asked for it. I didn't realise it touched the payment timeouts.
+Muhil: Thanks, Darcy, and again, this isn't about blame. The process let that happen. We need a rule that config changes to payments get a second reviewer.
+Eric: I can write that up as a proposal. Give me till next Wednesday.
+Muhil: Great. Darcy, would you be okay helping with the partner request part of the proposal, since you know how that came in?
+Darcy: Sure, I'll send Eric my notes by Monday.
+Elizabeth: From the customer side, we had about three hundred failed payments. Support got forty tickets.
+Muhil: Do we know which customers?
+Elizabeth: I have the list. I'll email every affected customer an apology by tomorrow.
+Akhash: Should we give them a discount code or something?
+Elizabeth: Let's not promise anything until finance agrees.
+Akhash: Fair. I'll ask finance about a goodwill credit and get back to you by Thursday.
+Priya: The other thing is the failed payments themselves. Some of those customers may never retry.
+Goutham: We can replay the failed payment requests from the logs. That's maybe a day of work.
+Muhil: Do it, but carefully. Who's taking it?
+Goutham: I'll do it, but not before the alert fix. Say Wednesday.
+Priya: Actually, Goutham, you've got the alert and you're on call this week. I'll take the replay. Same deadline, Wednesday.
+Goutham: Thanks, that helps.
+Muhil: Okay. Anything else?
+Eric: Can we talk about moving the whole payment service to the new cluster? It'd fix a lot of this.
+Muhil: That's a quarter-sized project, not a postmortem item. Bring it to planning.
+Eric: Okay, I'll put together a one-pager for planning, no rush.
+Elizabeth: One more. The status page wasn't updated during the outage at all. Customers found out from Twitter.
+Muhil: Yeah. Someone needs to own the status page during incidents. Let's figure that out at the next ops sync.
+Akhash: We should also do a fire drill at some point, simulate an outage.
+Muhil: Good idea, let's think about it. Okay, I'll write up the postmortem doc and share it by Friday. Thanks, all.
+
+```
+
+## Thinking
+```
+(none)
+```
+
+## Answer
+1. Goutham: Change the alert window to two minutes - Deadline: Today
+2. Eric: Write up a proposal for a rule that config changes to payments get a second reviewer - Deadline: Next Wednesday
+3. Darcy: Help with the partner request part of the proposal - Deadline: Send notes by Monday
+4. Elizabeth: Email an apology to every affected customer - Deadline: Tomorrow
+5. Akhash: Ask finance about a goodwill credit and get back to everyone by Thursday
+6. Goutham: Replay the failed payment requests from the logs - Deadline: Wednesday
+7. Elizabeth: Take over the replay of failed payment requests - Deadline: Wednesday
+8. Eric: Prepare a one-pager for moving the whole payment service to the new cluster - Deadline: No rush, bring to planning
+9. Muhil: Write up the postmortem document and share it by Friday
+10. Muhil: Figure out who will own the status page during incidents - Deadline: Next ops sync
+11. Akhash: Consider doing a fire drill to simulate an outage - Deadline: No specific deadline, to be thought about at the next ops sync.

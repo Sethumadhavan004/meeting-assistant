@@ -88,3 +88,19 @@ The author wrote `gold.md` without reading Claude's key; Claude compared the two
   memory committed, Windows Memory Compression at 2.1 GB. Earlier I blamed Notepad; that was wrong.
 - **Laptop unusable during runs:** 4 threads on a 4-core CPU = ~99.5% CPU. Expected by design, but
   it should have been said up front. Rule added: hands off the laptop during scored runs.
+
+## 2026-10-25 · Stage 4: Granite and Phi batches; all runs complete
+
+- Granite and Phi were run as one detached Windows process per batch (`Start-Process`) and waited on
+  with bounded `Wait-Process`. That avoids Claude Code's background-job memory rule and its
+  10-minute command limit (Granite m06 think-on took 634 s).
+- **Granite think-on lost 4 of 8 answers to the 3000-token cap: m04, m05, m06, m08.** Bonsai lost
+  m04, m06, m07. **m04 (S, pronoun/absent owner) and m06 (L) defeated both thinking models.**
+- **Granite's prompt speed is flat (~45–67 tok/s) across prompt lengths;** Bonsai's falls from ~31 to
+  ~10.5. The slowdown is specific to Bonsai's runtime/format, not to the CPU (supports Q1/Q4).
+- Granite's generation speed falls as its own output grows (6.5 → 4.9 tok/s at 3000 tokens):
+  each new token reads all earlier ones, so long thinking slows itself down.
+- RAM delta also rose across the Granite think-on batch (2.3 → 3.2 GB), so rising RAM is **not**
+  llama-server-specific (Q5 reworded). Both runtimes are llama.cpp-based.
+- Validity: 40/40 rows, max context used 3926 ≤ 4096, lowest available RAM 0.52 GB, no speed
+  collapse. All runs valid.

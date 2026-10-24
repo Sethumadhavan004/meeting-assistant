@@ -1,0 +1,5 @@
+-> granite_on_m05_sprint_r1_025620 ... 5.37 t/s, 3000 tok, 574.5 s, peak 5.88 GB
+-> granite_on_m06_launch_r1_030555 ... 4.91 t/s, 3000 tok, 633.7 s, peak 6.19 GB
+-> granite_on_m07_postmortem_r1_031629 ... 5.64 t/s, 1730 tok, 325.9 s, peak 6.61 GB
+-> granite_on_m08_hiring_r1_032155 ... 5.47 t/s, 3000 tok, 556.3 s, peak 6.67 GB
+Done. Rows appended to runs.csv, full texts in outputs/.
