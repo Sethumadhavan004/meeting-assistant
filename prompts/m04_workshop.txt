@@ -1,0 +1,8 @@
+Extract action items from this meeting as a list: owner, task, deadline.
+
+Elizabeth: For the client workshop, Darcy and I talked yesterday. She'll send the invites tomorrow.
+Akhash: Who's printing the handouts?
+Elizabeth: Darcy again. She said she can print them the day before the workshop.
+Goutham: The workshop's on the 14th, right?
+Elizabeth: Yes, the 14th.
+Akhash: I'll book the meeting room today. And we need someone to follow up with the client about dietary needs.
