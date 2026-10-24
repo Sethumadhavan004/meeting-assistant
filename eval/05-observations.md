@@ -58,3 +58,33 @@ The author wrote `gold.md` without reading Claude's key; Claude compared the two
   is classified* needs explicit rules (the "How to read this file" key in `gold.md`).
 - Before freezing, the protocol review also found Windows power mode on "Best power efficiency"
   (lower CPU clocks). Set to Best performance for all scored runs.
+
+## 2026-10-25 · Stage 4: Bonsai think-on batch
+
+- **Interrupted at m06** by Claude Code's background-job memory rule (it stops its own background
+  jobs when system memory looks low). Lowest available RAM during the finished runs was
+  1.38–1.87 GB, so the eval itself wasn't swapping. m01–m05 rows were already written; m06 left no
+  partial row. Added `--only` to `eval_runner.py` to resume m06–m08 without duplicating rows.
+  Remaining batches run in the author's own terminal.
+- **m04: thinking used the whole 3000-token budget and produced an empty answer** (`finish = length`,
+  `answer_chars = 0`). The end of the thinking text already contained the correct items, including
+  the "13th" refinement, then "Okay, ready." and the cap. On a 77-word meeting, thinking cost the answer.
+- Bonsai thinking used 1,589–3,000 output tokens per S/M meeting, i.e. 3.5–7 minutes each.
+- Prompt speed fell from 30.7 to 12.6 tok/s across m01–m05 while generation stayed at 7.3–8.0 tok/s
+  and CPU at ~99%. Cause unknown (heat-related slowdown? prompt length?). See `06-questions.md`.
+
+## 2026-10-25 · Stage 4: Bonsai think-off batch, and the Bonsai batch overall
+
+- Think-off: 8/8 finished (`finish = stop`), all answers present, `thinking_chars = 0`, 17–125 s per meeting.
+- **Think-on lost 3 of 8 answers to the 3000-token cap: m04 (S) and both L meetings (m06, m07).**
+  At a 4096 context, Bonsai with thinking can't handle ~5-minute chunks; thinking costs the answer.
+- m08 think-on (quick look before scoring): no invented deadlines ("TBD" throughout), but the
+  "someone should" item was given to Akhash, the person who said it.
+- **Prompt speed depends on prompt length, not temperature:** both batches show ~31 tok/s at ~113
+  prompt tokens down to ~10.5 at ~925, with the same values whether the meeting ran early or late.
+  Bonsai reads longer prompts more slowly per token, the opposite of a well-batched CPU path.
+- **RAM delta rising across the batch is the server growing,** not other apps (Notepad was open
+  from m01): llama-server peak working set 1.86 GB vs 1.23–1.41 GB at startup, 3.45 GB private
+  memory committed, Windows Memory Compression at 2.1 GB. Earlier I blamed Notepad; that was wrong.
+- **Laptop unusable during runs:** 4 threads on a 4-core CPU = ~99.5% CPU. Expected by design, but
+  it should have been said up front. Rule added: hands off the laptop during scored runs.

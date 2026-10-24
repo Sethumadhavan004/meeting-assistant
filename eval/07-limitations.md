@@ -17,3 +17,9 @@ Not comparable with the scripted runs, because they had:
 - different context sizes (8192 vs 4096)
 - Bonsai started via the demo script, so likely Vulkan op-offload, presence penalty 1.0, and the vision projector loaded (found 2026-10-24, see `05-observations.md`)
 - Windows power mode "Best power efficiency" (lower CPU clocks), found 2026-10-25. The smoke test ran in this mode too
+
+## RAM measurement
+
+- `ram_delta_gb` is system-wide (used minus the idle baseline), not per process. Anything that
+  changes on the machine during a batch shows up in it. For Bonsai the delta rose across the batch
+  because the server process grew, so later rows include more than the model's own footprint.

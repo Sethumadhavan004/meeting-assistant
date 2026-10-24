@@ -178,6 +178,9 @@ def cmd_run(args):
         raise SystemExit(f"{args.model} has no thinking mode - use --think off")
 
     prompts = sorted(PROMPTS.glob("*.txt"))
+    if args.only:  # resume an interrupted batch without duplicating finished rows
+        wanted = set(args.only.split(","))
+        prompts = [p for p in prompts if p.stem.split("_")[0] in wanted or p.stem in wanted]
     if not prompts:
         raise SystemExit("No prompts found - put .txt files in ./prompts")
 
@@ -252,6 +255,7 @@ def main():
     r.add_argument("--think", required=True, choices=["on", "off"])
     r.add_argument("--reps", type=int, default=1)
     r.add_argument("--temp", type=float, default=0.0)
+    r.add_argument("--only", help="comma-separated prompt ids to run, e.g. m06,m07,m08")
     args = ap.parse_args()
     {"baseline": cmd_baseline, "run": cmd_run}[args.cmd](args)
 

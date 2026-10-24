@@ -1,0 +1,36 @@
+# bonsai_off_m08_hiring_r1_022337
+
+## Prompt
+```
+Extract action items from this meeting as a list: owner, task, deadline.
+
+Darcy: Let's sort out the hiring loop for the designer role. Last Monday we had twelve applications, and three of them look strong.
+Akhash: I can do the first screening calls with those three.
+Darcy: Great. Elizabeth, could you write the take-home exercise? The one we used in March was far too long.
+Elizabeth: Sure, I'll make a shorter version.
+Goutham: Who's on the final panel?
+Darcy: Me, Goutham and Priya. Priya, can you put together a scoring rubric for the panel?
+Priya: Yes, I'll adapt the one we used for the engineering hires.
+Muhil: We also need the job post updated. It still shows the old salary range.
+Darcy: Good catch. Eric, you look after the careers page, right?
+Eric: I do. I'll fix the salary range, and I'll add the remote option while I'm in there.
+Goutham: Should we bring in an external recruiter as well?
+Darcy: Not yet. Let's see how these three go first.
+Akhash: Someone should also let the candidates we didn't shortlist know.
+Darcy: Okay, let's leave it there. I'll set up a shared folder for the interview notes.
+
+```
+
+## Thinking
+```
+(none)
+```
+
+## Answer
+*   **Owner:** Akhash | **Task:** Conduct first screening calls for the three strong designer applications | **Deadline:** Immediate (during meeting)
+*   **Owner:** Elizabeth | **Task:** Write a shorter take-home exercise for the designer role | **Deadline:** Immediate (during meeting)
+*   **Owner:** Darcy | **Task:** Set up a shared folder for interview notes | **Deadline:** Immediate (during meeting)
+*   **Owner:** Priya | **Task:** Create a scoring rubric for the hiring panel (adapted from engineering hires) | **Deadline:** Immediate (during meeting)
+*   **Owner:** Eric | **Task:** Update the job post (fix salary range, add remote option) | **Deadline:** Immediate (during meeting)
+*   **Owner:** Darcy | **Task:** Briefly inform unshortlisted candidates about the process | **Deadline:** Immediate (during meeting)
+*   **Owner:** Darcy | **Task:** Decide on external recruiter involvement (currently decided: No) | **Deadline:** Immediate (during meeting)

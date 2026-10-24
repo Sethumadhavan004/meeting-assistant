@@ -1,0 +1,5 @@
+﻿-> bonsai_on_m01_pricing_r1_011116 ... 7.35 t/s, 2821 tok, 389.4 s, peak 5.6 GB
+-> bonsai_on_m02_offsite_r1_011746 ... 7.31 t/s, 2419 tok, 339.2 s, peak 5.49 GB
+-> bonsai_on_m03_newsletter_r1_012325 ... 8.04 t/s, 1589 tok, 210.0 s, peak 5.56 GB
+-> bonsai_on_m04_workshop_r1_012655 ... 7.3 t/s, 3000 tok, 418.6 s, peak 5.78 GB
+-> bonsai_on_m05_sprint_r1_013354 ... 7.55 t/s, 2125 tok, 316.2 s, peak 5.99 GB
