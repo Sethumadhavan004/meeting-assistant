@@ -96,11 +96,16 @@ def split_think(text):
 
 
 # ---------------- backends: both return the same dict shape ----------------
-def call_ollama(cfg, prompt, think, temp):
+def chat(prompt, system):
+    # optional system prompt (round 2+): sent the same way to both backends
+    return ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": prompt}]
+
+
+def call_ollama(cfg, prompt, think, temp, system=None):
     # Native /api/chat (not /v1) because it returns exact token counts and durations.
     body = {
         "model": cfg["name"],
-        "messages": [{"role": "user", "content": prompt}],
+        "messages": chat(prompt, system),
         "stream": False,
         "options": {"temperature": temp, "num_ctx": CTX, "num_predict": MAX_TOKENS},
     }
@@ -124,11 +129,11 @@ def call_ollama(cfg, prompt, think, temp):
     }
 
 
-def call_llama(cfg, prompt, think, temp):
+def call_llama(cfg, prompt, think, temp, system=None):
     # OpenAI-style endpoint; llama-server adds a 'timings' block with exact speeds.
     body = {
         "model": cfg["name"],
-        "messages": [{"role": "user", "content": prompt}],
+        "messages": chat(prompt, system),
         "temperature": temp,
         "max_tokens": MAX_TOKENS,
         "cache_prompt": False,                                 # measure real prompt processing every time
@@ -188,12 +193,17 @@ def cmd_run(args):
     if idle is None:
         print("WARNING: no baseline.json - ram_delta_gb will be blank. Run `baseline` first.")
 
-    OUTPUTS.mkdir(exist_ok=True)
-    new_file = not CSV_PATH.exists()
+    # --round keeps later rounds out of the baseline files (runs-<round>.csv, outputs-<round>/)
+    csv_path = ROOT / f"runs-{args.round}.csv" if args.round else CSV_PATH
+    outputs = ROOT / f"outputs-{args.round}" if args.round else OUTPUTS
+    system = pathlib.Path(args.system).read_text(encoding="utf-8") if args.system else None
+
+    outputs.mkdir(exist_ok=True)
+    new_file = not csv_path.exists()
     call = call_ollama if cfg["backend"] == "ollama" else call_llama
     ceiling = BANDWIDTH_GBPS / cfg["file_gb"]
 
-    with CSV_PATH.open("a", newline="", encoding="utf-8") as f:
+    with csv_path.open("a", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=FIELDS)
         if new_file:
             w.writeheader()
@@ -208,7 +218,7 @@ def cmd_run(args):
                 s.start()
                 t0 = time.perf_counter()
                 try:
-                    res = call(cfg, text, think, args.temp)
+                    res = call(cfg, text, think, args.temp, system)
                 except Exception as e:  # keep the batch going; log the failure
                     s.stop()
                     print(f"FAILED: {e}")
@@ -234,8 +244,9 @@ def cmd_run(args):
                 w.writerow(row)
                 f.flush()  # write each row immediately, so a crash never loses finished runs
 
-                (OUTPUTS / f"{run_id}.md").write_text(
-                    f"# {run_id}\n\n## Prompt\n```\n{text}\n```\n\n"
+                (outputs / f"{run_id}.md").write_text(
+                    f"# {run_id}\n\n" + (f"## System ({args.system})\n```\n{system}\n```\n\n" if system else "") +
+                    f"## Prompt\n```\n{text}\n```\n\n"
                     f"## Thinking\n```\n{res['thinking'] or '(none)'}\n```\n\n## Answer\n{res['answer']}\n",
                     encoding="utf-8",
                 )
@@ -243,7 +254,7 @@ def cmd_run(args):
 
     if cfg["backend"] == "ollama":
         unload_ollama(cfg)
-    print(f"Done. Rows appended to {CSV_PATH.name}, full texts in outputs/.")
+    print(f"Done. Rows appended to {csv_path.name}, full texts in {outputs.name}/.")
 
 
 def main():
@@ -256,6 +267,8 @@ def main():
     r.add_argument("--reps", type=int, default=1)
     r.add_argument("--temp", type=float, default=0.0)
     r.add_argument("--only", help="comma-separated prompt ids to run, e.g. m06,m07,m08")
+    r.add_argument("--system", help="system prompt file, sent before every meeting (round 2+)")
+    r.add_argument("--round", help="write to runs-<round>.csv and outputs-<round>/ instead of the baseline files")
     args = ap.parse_args()
     {"baseline": cmd_baseline, "run": cmd_run}[args.cmd](args)
 

@@ -100,3 +100,25 @@ Every deadline is NONE. Any deadline written by a model, especially "Monday" or 
 
 Not action items: external recruiter ("not yet")
 Borderline: final panel membership (Darcy, Goutham, Priya). Is "sit on the panel" a task? Author decides.
+
+## m09_escalation (S, held-out, round 2): trap = reported owner, task done in the meeting, indirect "somebody"
+| # | owner | task | deadline | notes |
+|---|---|---|---|---|
+| 1 | Eric | call Halden's finance contact to sort out the card | tomorrow | Eric is absent; Darcy only reports it. Owner Darcy = wrong |
+| 2 | Goutham | rewrite the reminder email template | next Wednesday | |
+| 3 | UNASSIGNED | check whether other accounts have the same old-address problem | NONE | "it would be good if somebody"; Elizabeth agrees but doesn't take it. Owner Darcy or Elizabeth = wrong |
+
+Optional: Elizabeth fixes the contact address in billing (done during the meeting; listing it is harmless)
+Not action items: none
+
+## m10_budget (M, held-out, round 2): trap = handover, deadline changed twice, declined task, two tasks in one sentence, parked idea
+| # | owner | task | deadline | notes |
+|---|---|---|---|---|
+| 1 | Muhil | take over the design-software contract renegotiation | NONE | from Darcy; owner Darcy = wrong. "while Darcy is on leave" acceptable as deadline |
+| 2 | Darcy | forward the vendor emails to Muhil | Friday | |
+| 3 | Elizabeth | have next quarter's forecast ready | the 2nd | changed 5th → 3rd → 2nd; 5th or 3rd = wrong |
+| 4 | Muhil | cancel the unused seat licences | Thursday | Akhash declined; owner Akhash = wrong |
+| 5 | Muhil | email the vendor a confirmation of the cancellation | Thursday | same sentence as 4; one line covering both counts for both |
+| 6 | UNASSIGNED | update the actuals spreadsheet | before the finance review | "somebody needs to" |
+
+Not action items: move everyone to the cheaper laptop model (parked until spring)
