@@ -12,3 +12,4 @@ meetings/
 *.egg-info/
 .pytest_cache/
 brag-output/
+meeting_assistant/web/static/_*.html
