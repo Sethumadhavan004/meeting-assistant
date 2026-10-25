@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meeting Assistant</title>
+<style>
+  :root {
+    --bg: #f6f5f2; --surface: #ffffff; --surface-2: #f0efeb; --border: #e2e0da;
+    --text: #1b1b1a; --text-2: #5c5b57; --muted: #8a8984;
+    --accent: #2a63c7; --accent-ink: #ffffff;
+    --rec: #d93f3f; --rec-soft: #fbe9e9;
+    --warn: #9a6200; --warn-soft: #fdf3dc; --ok: #1f7a4d; --ok-soft: #e3f3ea;
+    --radius: 10px; --shadow: 0 1px 2px rgba(0,0,0,.05), 0 2px 8px rgba(0,0,0,.04);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #151514; --surface: #1d1d1b; --surface-2: #252523; --border: #34332f;
+      --text: #ecebe6; --text-2: #b4b2aa; --muted: #85837c;
+      --accent: #6b9bf0; --accent-ink: #0d1626;
+      --rec: #f06a6a; --rec-soft: #3a1f1f;
+      --warn: #f0b84a; --warn-soft: #3a2f17; --ok: #5fcf95; --ok-soft: #173126;
+      --shadow: none;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+           padding: 14px 24px; border-bottom: 1px solid var(--border); background: var(--surface); }
+  header h1 { font-size: 17px; margin: 0; font-weight: 650; letter-spacing: -.01em; }
+  header .tag { font-size: 12px; color: var(--text-2); }
+  header .spacer { flex: 1; }
+  select, input, button, textarea { font: inherit; color: inherit; }
+  select { background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; }
+  .pill { font-size: 12px; padding: 3px 10px; border-radius: 999px; background: var(--surface-2); color: var(--text-2); }
+  .pill.ok { background: var(--ok-soft); color: var(--ok); }
+  .pill.down { background: var(--rec-soft); color: var(--rec); }
+  main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 20px;
+         padding: 20px 24px; max-width: 1400px; margin: 0 auto; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; padding: 16px; } }
+  section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+            box-shadow: var(--shadow); display: flex; flex-direction: column; min-height: 520px; }
+  section > h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-2);
+                 margin: 0; padding: 14px 18px 10px; display: flex; align-items: center; gap: 10px; }
+  section > h2 .spacer { flex: 1; }
+  .speakers { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 18px 12px; }
+  .speaker { border: 1px solid var(--border); background: var(--surface-2); border-radius: 999px;
+             padding: 7px 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+             min-height: 36px; transition: background .12s; }
+  .speaker:hover { border-color: var(--text-2); }
+  .speaker .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); }
+  .speaker.live { background: var(--rec-soft); border-color: var(--rec); color: var(--rec); font-weight: 600; }
+  .speaker.live .dot { background: var(--rec); animation: pulse 1s infinite; }
+  @keyframes pulse { 50% { opacity: .25; } }
+  .hint { font-size: 13px; color: var(--muted); padding: 0 18px 10px; }
+  .turns { flex: 1; overflow-y: auto; padding: 4px 10px 10px; border-top: 1px solid var(--border); }
+  .turn { display: grid; grid-template-columns: 92px 1fr 28px; gap: 8px; padding: 8px; border-radius: 8px; }
+  .turn:hover { background: var(--surface-2); }
+  .turn .who { font-weight: 600; font-size: 14px; padding-top: 1px; overflow: hidden; text-overflow: ellipsis; }
+  .turn .what { outline: none; min-height: 1.5em; }
+  .turn .what:focus { box-shadow: 0 0 0 2px var(--accent); border-radius: 4px; }
+  .turn.pending .what { color: var(--muted); font-style: italic; }
+  .turn .del { opacity: 0; border: 0; background: none; color: var(--muted); cursor: pointer; }
+  .turn:hover .del { opacity: 1; }
+  .empty { color: var(--muted); padding: 24px 18px; font-size: 14px; }
+  .bar { display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 18px; border-top: 1px solid var(--border); }
+  .btn { border: 1px solid var(--border); background: var(--surface-2); border-radius: 8px; padding: 8px 14px;
+         cursor: pointer; min-height: 38px; }
+  .btn:hover { border-color: var(--text-2); }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; }
+  .btn:disabled { opacity: .5; cursor: default; }
+  .meta { font-size: 13px; color: var(--text-2); font-weight: 400; text-transform: none; letter-spacing: 0; }
+  .notes { flex: 1; overflow: auto; border-top: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; font-weight: 600; font-size: 12px; color: var(--text-2); padding: 10px 12px;
+       border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--surface); }
+  td { padding: 6px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  td input { width: 100%; border: 1px solid transparent; background: transparent; border-radius: 6px; padding: 4px 6px; }
+  td input:hover { border-color: var(--border); }
+  td input:focus { outline: none; border-color: var(--accent); background: var(--surface); }
+  td.owner { width: 22%; } td.deadline { width: 20%; }
+  td input.unassigned { color: var(--warn); font-weight: 600; }
+  tr.flagged td { background: var(--warn-soft); }
+  .flag { display: block; font-size: 12px; color: var(--warn); padding: 0 6px 4px; }
+  .flag::before { content: "⚑ "; }
+  .card { margin: 14px 18px; padding: 12px 14px; border: 1px dashed var(--border); border-radius: 8px; }
+  .card h3 { margin: 0 0 4px; font-size: 14px; }
+  .card p { margin: 0 0 8px; font-size: 13px; color: var(--text-2); }
+  .missed { display: flex; gap: 10px; align-items: baseline; padding: 6px 0; border-top: 1px solid var(--border); font-size: 14px; }
+  .missed q { flex: 1; color: var(--text); }
+  .missed .btn { padding: 4px 10px; min-height: 30px; font-size: 13px; }
+  details { margin: 0 18px 14px; font-size: 13px; color: var(--text-2); }
+  .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--text);
+           color: var(--bg); padding: 10px 16px; border-radius: 8px; font-size: 14px; opacity: 0;
+           transition: opacity .2s; pointer-events: none; max-width: 90vw; }
+  .toast.show { opacity: 1; }
+  .err { color: var(--rec); padding: 14px 18px; font-size: 14px; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Meeting Assistant</h1>
+    <div class="tag">Runs on this laptop. Audio and notes never leave it.</div>
+  </div>
+  <div class="spacer"></div>
+  <label class="meta" for="backend">Model</label>
+  <select id="backend"></select>
+  <span id="health" class="pill">checking…</span>
+</header>
+
+<main>
+  <section>
+    <h2>Transcript <span class="spacer"></span><span id="speechState" class="meta">loading speech model…</span></h2>
+    <div class="speakers" id="speakers"></div>
+    <div class="hint">Click your name and speak. Click again to stop, or click the next speaker. Text is editable.</div>
+    <div class="turns" id="turns"><div class="empty">No turns yet.</div></div>
+    <div class="bar">
+      <button class="btn primary" id="extract">Extract action items</button>
+      <button class="btn" id="open">Open transcript…</button>
+      <input type="file" id="file" accept=".txt" hidden>
+      <button class="btn" id="clear">Clear</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Action items <span class="spacer"></span><span id="notesMeta" class="meta"></span></h2>
+    <div class="notes" id="notes"><div class="empty">Extract to see owners, tasks and deadlines. Flagged rows need a human check.</div></div>
+    <div class="bar">
+      <button class="btn" id="copy" disabled>Copy as Markdown</button>
+      <button class="btn" id="save" disabled>Save</button>
+    </div>
+  </section>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const state = { turns: [], result: null, live: null, rec: null };
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function toast(msg, ms = 2600) {
+  const t = $("toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove("show"), ms);
+}
+
+async function api(path, opts = {}) {
+  const r = await fetch(path, opts);
+  const body = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(body.detail || r.statusText);
+  return body;
+}
+
+// ---------- setup ----------
+async function init() {
+  const cfg = await api("/api/config");
+  for (const [name, b] of Object.entries(cfg.backends)) {
+    const o = new Option(`${name} · ${b.note}`, name); if (name === cfg.default_backend) o.selected = true;
+    $("backend").add(o);
+  }
+  cfg.participants.forEach(addSpeaker);
+  $("backend").onchange = checkHealth;
+  checkHealth();
+  // warm the speech model so the first turn isn't slow
+  const blank = new Float32Array(16000).buffer;
+  api("/api/transcribe", { method: "POST", body: blank }).then(() => $("speechState").textContent = "speech model ready")
+    .catch(() => $("speechState").textContent = "speech model failed to load");
+}
+
+async function checkHealth() {
+  const h = await api("/api/health"), b = h[$("backend").value], pill = $("health");
+  pill.className = "pill " + (b.ok ? "ok" : "down");
+  pill.textContent = b.ok ? "model server up" : "model server down";
+  pill.title = b.ok ? "" : b.message;
+}
+
+function addSpeaker(name) {
+  const b = document.createElement("button");
+  b.className = "speaker"; b.innerHTML = `<span class="dot"></span>${esc(name)}`;
+  b.onclick = () => toggle(name, b);
+  $("speakers").append(b);
+}
+
+// ---------- recording: raw PCM via Web Audio, resampled to 16 kHz in the browser ----------
+async function toggle(name, btn) {
+  const was = state.live;
+  if (state.rec) await stopTurn();
+  if (was !== name) await startTurn(name, btn);
+}
+
+async function startTurn(name, btn) {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true } });
+    const ctx = new AudioContext();
+    const src = ctx.createMediaStreamSource(stream);
+    const proc = ctx.createScriptProcessor(4096, 1, 1);
+    const chunks = [];
+    proc.onaudioprocess = (e) => chunks.push(new Float32Array(e.inputBuffer.getChannelData(0)));
+    src.connect(proc); proc.connect(ctx.destination);
+    state.rec = { stream, ctx, proc, chunks, btn }; state.live = name;
+    btn.classList.add("live");
+  } catch (e) { toast("Microphone not available: " + e.message, 5000); }
+}
+
+async function stopTurn() {
+  const { stream, ctx, proc, chunks, btn } = state.rec, name = state.live;
+  proc.disconnect(); stream.getTracks().forEach((t) => t.stop());
+  const audio = resample(chunks, ctx.sampleRate, 16000);
+  await ctx.close();
+  btn.classList.remove("live"); state.rec = null; state.live = null;
+  if (audio.length < 3200) return;               // under 0.2 s: a click
+  const turn = { speaker: name, text: "transcribing…", pending: true };
+  state.turns.push(turn); renderTurns();         // placeholder keeps turns in speaking order
+  try {
+    const r = await api("/api/transcribe", { method: "POST", body: audio.buffer });
+    turn.text = r.text || "(nothing heard)"; turn.pending = false;
+  } catch (e) { turn.text = "(transcription failed: " + e.message + ")"; turn.pending = false; }
+  renderTurns();
+}
+
+function resample(chunks, from, to) {
+  const n = chunks.reduce((a, c) => a + c.length, 0), input = new Float32Array(n);
+  let o = 0; for (const c of chunks) { input.set(c, o); o += c.length; }
+  const ratio = from / to, out = new Float32Array(Math.floor(n / ratio));
+  for (let i = 0; i < out.length; i++) {          // average the samples each output sample covers
+    const s = Math.floor(i * ratio), e = Math.min(n, Math.floor((i + 1) * ratio));
+    let sum = 0; for (let j = s; j < e; j++) sum += input[j];
+    out[i] = sum / Math.max(1, e - s);
+  }
+  return out;
+}
+
+// ---------- transcript ----------
+function renderTurns() {
+  const box = $("turns");
+  if (!state.turns.length) { box.innerHTML = '<div class="empty">No turns yet.</div>'; return; }
+  box.innerHTML = "";
+  state.turns.forEach((t, i) => {
+    const row = document.createElement("div");
+    row.className = "turn" + (t.pending ? " pending" : "");
+    row.innerHTML = `<div class="who">${esc(t.speaker)}</div><div class="what" contenteditable="${!t.pending}">${esc(t.text)}</div><button class="del" title="Delete turn">✕</button>`;
+    row.querySelector(".what").oninput = (e) => (t.text = e.target.textContent);
+    row.querySelector(".del").onclick = () => { state.turns.splice(i, 1); renderTurns(); };
+    box.append(row);
+  });
+  box.scrollTop = box.scrollHeight;
+}
+
+const transcriptText = () => state.turns.filter((t) => !t.pending).map((t) => `${t.speaker}: ${t.text.trim()}`).join("\n");
+
+$("open").onclick = () => $("file").click();
+$("file").onchange = async (e) => {
+  const text = await e.target.files[0].text();
+  state.turns = text.split(/\r?\n/).map((l) => l.match(/^\s*([A-Z][\w .'-]{0,30}):\s*(.+)$/))
+    .filter(Boolean).map((m) => ({ speaker: m[1], text: m[2] }));
+  renderTurns(); e.target.value = "";
+  toast(`Loaded ${state.turns.length} turns`);
+};
+$("clear").onclick = () => { if (confirm("Clear the transcript?")) { state.turns = []; renderTurns(); } };
+
+// ---------- notes ----------
+$("extract").onclick = async () => {
+  const transcript = transcriptText();
+  if (!transcript) return toast("The transcript is empty.");
+  const btn = $("extract"); btn.disabled = true; btn.textContent = "Extracting…";
+  $("notesMeta").textContent = `${$("backend").value} · thinking off`;
+  try {
+    state.result = await api("/api/notes", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ transcript, backend: $("backend").value }) });
+    renderNotes();
+  } catch (e) {
+    $("notes").innerHTML = `<div class="err">${esc(e.message)}</div>`;
+  } finally { btn.disabled = false; btn.textContent = "Extract action items"; }
+};
+
+function renderNotes() {
+  const r = state.result, box = $("notes");
+  $("notesMeta").textContent = `${r.backend} · ${r.seconds.toFixed(0)} s · ${r.items.length} items`;
+  const rows = r.items.map((it, i) => `
+    <tr class="${it.flags.length ? "flagged" : ""}">
+      <td class="owner"><input data-i="${i}" data-k="owner" value="${esc(it.owner)}" class="${it.owner === "UNASSIGNED" ? "unassigned" : ""}"></td>
+      <td><input data-i="${i}" data-k="task" value="${esc(it.task)}">${it.flags.map((f) => `<span class="flag">${esc(f)}</span>`).join("")}</td>
+      <td class="deadline"><input data-i="${i}" data-k="deadline" value="${esc(it.deadline)}"></td>
+    </tr>`).join("");
+  let html = r.items.length ? `<table><thead><tr><th>Owner</th><th>Task</th><th>Deadline</th></tr></thead><tbody>${rows}</tbody></table>`
+                            : '<div class="empty">No action items found.</div>';
+  if (r.missed.length) {
+    html += `<div class="card"><h3>Possibly missed</h3><p>Someone said this was needed, but no item covers it.</p>` +
+      r.missed.map((m, i) => `<div class="missed"><strong>${esc(m.speaker)}</strong><q>${esc(m.sentence)}</q><button class="btn" data-add="${i}">Add as item</button></div>`).join("") + `</div>`;
+  }
+  if (r.rejected.length) html += `<details><summary>${r.rejected.length} line(s) the model wrote that are not items</summary><pre>${esc(r.rejected.join("\n"))}</pre></details>`;
+  box.innerHTML = html;
+  box.querySelectorAll("input[data-i]").forEach((inp) => inp.oninput = () => {
+    r.items[inp.dataset.i][inp.dataset.k] = inp.value;
+    if (inp.dataset.k === "owner") inp.classList.toggle("unassigned", inp.value.trim().toUpperCase() === "UNASSIGNED");
+  });
+  box.querySelectorAll("[data-add]").forEach((b) => b.onclick = () => {
+    const m = r.missed.splice(+b.dataset.add, 1)[0];
+    r.items.push({ owner: "UNASSIGNED", task: m.sentence, deadline: "NONE", flags: [`added from what ${m.speaker} said; set an owner`] });
+    renderNotes();
+  });
+  $("copy").disabled = $("save").disabled = false;
+}
+
+function markdown() {
+  const r = state.result;
+  const L = ["| owner | task | deadline | check |", "|---|---|---|---|",
+    ...r.items.map((it) => `| ${it.owner} | ${it.task} | ${it.deadline} | ${it.flags.join("; ")} |`)];
+  if (r.missed.length) L.push("", "Possibly missed:", ...r.missed.map((m) => `- ${m.speaker}: "${m.sentence}"`));
+  return L.join("\n");
+}
+$("copy").onclick = async () => { await navigator.clipboard.writeText(markdown()); toast("Copied"); };
+$("save").onclick = async () => {
+  const r = await api("/api/save", { method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ transcript: transcriptText(), result: state.result }) });
+  toast("Saved to " + r.folder, 4000);
+};
+
+init();
+</script>
+</body>
+</html>

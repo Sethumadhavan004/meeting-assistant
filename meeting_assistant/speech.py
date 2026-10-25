@@ -40,12 +40,16 @@ def split_clip(audio):
     return pieces + [audio]
 
 
+_run_lock = threading.Lock()
+
+
 def transcribe(audio):
-    """16 kHz mono float32 array -> text."""
+    """16 kHz mono float32 array -> text. One clip at a time: the CPU is the bottleneck anyway."""
     model, tokenizer = load()
     texts = []
-    for piece in split_clip(np.asarray(audio, dtype=np.float32)):
-        if len(piece) < RATE // 5:  # under 0.2 s: a click, not speech
-            continue
-        texts.append(tokenizer.decode_batch(model.generate(piece[None, :]))[0].strip())
+    with _run_lock:
+        for piece in split_clip(np.asarray(audio, dtype=np.float32)):
+            if len(piece) < RATE // 5:  # under 0.2 s: a click, not speech
+                continue
+            texts.append(tokenizer.decode_batch(model.generate(piece[None, :]))[0].strip())
     return " ".join(t for t in texts if t)
