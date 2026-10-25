@@ -153,3 +153,30 @@ Every deadline in this meeting is `NONE`. "Last Monday" and "in March" are past 
 
 **Optional:**
 - sit on the final panel (Darcy, Goutham, Priya)
+
+## m09_escalation
+
+| # | owner | task | deadline | notes |
+|---|---|---|---|---|
+| 1 | Eric | call the finance contact to sort out the card issue | tomorrow | Eric is absent; Darcy only reports it. Owner Darcy = wrong |
+| 2 | Goutham | rewrite the reminder template | next Wednesday | |
+| 3 | UNASSIGNED | check whether other accounts have the same old-address problem | NONE | "it would be good if somebody"; Elizabeth agrees but doesn't take it. Owner Darcy or Elizabeth = wrong |
+
+**Not action items:** none
+**Optional:**
+- Elizabeth updates the contact address in the billing system (done during the meeting)
+
+## m10_budget
+
+| # | owner | task | deadline | notes |
+|---|---|---|---|---|
+| 1 | Muhil | take over the design-software contract renegotiation | NONE | handed over from Darcy; owner Darcy = wrong. "while Darcy is on leave" acceptable |
+| 2 | Darcy | hand over the contract: forward the vendor emails to Muhil | Friday | |
+| 3 | Elizabeth | have the forecast for next quarter ready | 2nd | changed 5th → 3rd → 2nd; 5th or 3rd = wrong |
+| 4 | Muhil | cancel the unused seats and email the vendor a confirmation | Thursday | Akhash declined; owner Akhash = wrong. Split into two lines = duplicate, not penalised |
+| 5 | UNASSIGNED | update the spreadsheet with the actuals | before the finance review | "somebody needs to" |
+
+**Not action items:**
+- move everyone to the cheaper laptop model (parked until the hardware refresh in spring)
+
+**Optional:** none

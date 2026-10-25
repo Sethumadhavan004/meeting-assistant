@@ -140,3 +140,19 @@ defaults and may change after review.
 - **Format is a product requirement, not just a scoring detail.** The baseline accepted any line a
   person can read as owner / task / deadline. An app needs a format a program can parse, so the next
   round fixes the output format in the prompt.
+
+## 2026-10-25 · Round 2: held-out gold, two-annotator check (m09, m10)
+
+- The author wrote gold for m09/m10 without reading Claude's key. **Every trap was read the same way:**
+  reported owner (Eric, absent), handover (Muhil), declined task (Akhash → Muhil), deadline changed
+  twice (5th → 3rd → 2nd), both UNASSIGNED items, parked laptop idea.
+- Differences, all resolved before any run:
+  - m09: Elizabeth's address fix was a gold item for the author and Optional for Claude. It was done
+    during the meeting, so → **Optional** (author agreed).
+  - m10: the spreadsheet deadline was NONE for the author and "before the finance review" for Claude. It
+    was said in the meeting, the same pattern as the author's m05 fix → **before the finance review**
+    (author agreed).
+  - m10: cancel seats + email the vendor: the author merged them, Claude split them → **merged**
+    (the author's m08 precedent).
+- Same as in m01–m07: content agreement is high; disagreements are about *classification*
+  (done-in-meeting, implied deadline, merge vs split).
