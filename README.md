@@ -92,3 +92,7 @@ Ternary Bonsai via PrismML's llama.cpp fork ([Bonsai-demo](https://github.com/Pr
 Phi-4-mini via [Ollama](https://ollama.com), [Kokoro](https://huggingface.co/hexgrad/Kokoro-82M)
 (demo voices only), FastAPI. Fonts: Kalam (Indian Type Foundry, OFL) and iA Writer Quattro (OFL),
 licences in `meeting_assistant/web/static/fonts/`.
+
+## License
+
+MIT ([LICENSE](LICENSE)). Fonts keep their own OFL licences; models keep theirs (see each model card).
