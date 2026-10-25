@@ -4,7 +4,7 @@ The plan: **base eval (this round) → base model chosen → meeting-assistant a
 optimisation rounds.** Every round is measured against this baseline with the same harness, gold
 set and protocol, and changes **one parameter at a time**, so each stat change has a named cause.
 
-## Round 1: base (in progress, Oct 2026)
+## Round 1: base (done 2026-10-25)
 
 Default settings, temperature 0, ctx 4096, max_tokens 3000. Results in `03-results.md`.
 

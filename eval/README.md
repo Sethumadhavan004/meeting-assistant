@@ -16,6 +16,7 @@ action-item quality per second and per GB, and what does "thinking" mode cost?
 | [07-limitations.md](07-limitations.md) | confounds and biases | yes |
 | [08-next-iterations.md](08-next-iterations.md) | roadmap for optimisation rounds | yes |
 | `scoring/` | labels.csv, runs.csv, score.py, REVIEW.md | labels reviewed by author |
+| `report.py`, `charts/` | builds `03-results.md` and the charts from the CSVs | regenerated |
 | `raw/` | logs exactly as captured, **never edited** | append-only |
 
 Raw data never changes; interpretation does. Keeping them apart means rewriting the
@@ -51,5 +52,9 @@ python eval_runner.py run --model bonsai  --think off
 python eval_runner.py run --model granite --think on
 python eval_runner.py run --model granite --think off
 python eval_runner.py run --model phi     --think off
+
+# score (after labelling outputs in eval/scoring/labels.csv), then build tables + charts
+python eval/scoring/score.py
+python eval/report.py
 ```
 
