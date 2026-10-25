@@ -11,3 +11,4 @@ Hacktoberfest-2026/
 meetings/
 *.egg-info/
 .pytest_cache/
+brag-output/

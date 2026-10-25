@@ -22,7 +22,7 @@ from .. import config, speech
 from ..core import notes, to_markdown
 
 STATIC = Path(__file__).parent / "static"
-PARTICIPANTS = ["Akhash", "Goutham", "Muhil", "Priya", "Eric", "Darcy", "Elizabeth"]
+PARTICIPANTS = ["Akhash", "Goutham", "Muhil", "Priya", "Eric", "Darcy", "Elizabeth"]  # if the config has none
 
 app = FastAPI(title="Meeting assistant (local)")
 app.mount("/static", StaticFiles(directory=STATIC), name="static")
@@ -36,7 +36,7 @@ def index():
 @app.get("/api/config")
 def get_config():
     cfg = config.load()
-    return {"default_backend": cfg["default_backend"], "participants": PARTICIPANTS,
+    return {"default_backend": cfg["default_backend"], "participants": cfg.get("participants", PARTICIPANTS),
             "backends": {k: {"model": v["model"], "note": v["note"]} for k, v in cfg["backends"].items()}}
 
 

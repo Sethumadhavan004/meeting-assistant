@@ -1,9 +1,16 @@
-Copyright 2024 The Geist Project Authors (https://github.com/vercel/geist-font)
+# iA Writer Typeface
+
+Copyright © 2018 Information Architects Inc. with Reserved Font Name "iA Writer"
+
+# Based on IBM Plex Typeface
+
+Copyright © 2017 IBM Corp. with Reserved Font Name "Plex"
+
+# License
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
-https://openfontlicense.org
-
+http://scripts.sil.org/OFL
 
 -----------------------------------------------------------
 SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007

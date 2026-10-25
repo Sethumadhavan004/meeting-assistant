@@ -5,6 +5,7 @@ default_backend = "bonsai"
 system_prompt = "prompts/system/meeting-assistant.md"   # the prompt measured in round 2
 max_tokens = 1000
 timeout_s = 600
+participants = ["Sethu", "Goutham", "Akhash", "Ram"]   # speaker buttons; each gets a sticky-note colour in this order
 
 [backends.bonsai]
 kind = "llama-server"            # start with scripts/start_bonsai.ps1
