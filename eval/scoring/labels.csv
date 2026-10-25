@@ -208,25 +208,25 @@ phi_off_m07_postmortem_r1_034204,9,matched,9,1,1,,postmortem doc; Muhil; Friday
 phi_off_m07_postmortem_r1_034204,10,matched,8,0,1,,status page owner; invented owner Muhil; next ops sync
 phi_off_m07_postmortem_r1_034204,11,optional,,,,,fire drill (Optional in gold)
 bonsai_off_m09_escalation_r1_204758,1,optional,,,,,address fix (done in meeting)
-bonsai_off_m09_escalation_r1_204758,2,matched,2,none,1,REVIEW,reminder template; no owner written anywhere; next Wednesday
-bonsai_off_m09_escalation_r1_204758,3,matched,3,none,1,REVIEW,check other accounts; no owner written (not flagged; not invented); not specified
+bonsai_off_m09_escalation_r1_204758,2,matched,2,none,1,decided,reminder template; no owner written anywhere; next Wednesday
+bonsai_off_m09_escalation_r1_204758,3,matched,3,none,1,decided,check other accounts; no owner written (not flagged; not invented); not specified
 granite_off_m09_escalation_r1_201500,1,optional,,,,,address fix (done in meeting)
 granite_off_m09_escalation_r1_201500,2,matched,2,1,1,,reminder template; Goutham; next Wednesday
 granite_off_m09_escalation_r1_201500,3,matched,3,0,0,,check other accounts; invented owner Darcy; ASAP invented
 granite_off_m09_escalation_r1_201500,4,matched,1,0,1,,Eric's call; owner Darcy (ensure Eric calls); tomorrow
-granite_off_m09_escalation_r1_201500,5,wrong,,,,REVIEW,non-item line (Goutham: no separate item needed); same rule as Phi m05 ext 8
+granite_off_m09_escalation_r1_201500,5,wrong,,,,decided,non-item line (Goutham: no separate item needed); same rule as Phi m05 ext 8
 phi_off_m09_escalation_r1_202013,1,wrong,,,,,check Halden account for failed invoices: already done before the meeting; not an action item
 phi_off_m09_escalation_r1_202013,2,matched,1,0,1,,Eric's call; owner Darcy (Eric to call in task); tomorrow
 phi_off_m09_escalation_r1_202013,3,optional,,,,,address fix (done in meeting)
 phi_off_m09_escalation_r1_202013,4,matched,2,1,1,,reminder template; Goutham; next Wednesday
 phi_off_m09_escalation_r1_202013,5,matched,3,0,0,,check other accounts; invented owner Darcy; ASAP invented
 bonsai_off_m10_budget_r1_204827,1,wrong,,,,,conduct quarterly budget check: the meeting itself
-bonsai_off_m10_budget_r1_204827,2,matched,1,none,0,REVIEW,merged line covers gold 1+2: take over contract; no owner; Friday is the email date
-bonsai_off_m10_budget_r1_204827,2,matched,2,none,1,REVIEW,merged line covers gold 1+2: retrieve vendor emails; no owner; Friday
+bonsai_off_m10_budget_r1_204827,2,matched,1,none,0,decided,merged line covers gold 1+2: take over contract; no owner; Friday is the email date
+bonsai_off_m10_budget_r1_204827,2,matched,2,none,1,decided,merged line covers gold 1+2: retrieve vendor emails; no owner; Friday
 bonsai_off_m10_budget_r1_204827,3,duplicate,1,none,0,,contract progress again; no owner
-bonsai_off_m10_budget_r1_204827,4,matched,3,none,1,REVIEW,forecast; no owner; 2nd
-bonsai_off_m10_budget_r1_204827,5,matched,4,none,1,REVIEW,cancel seats + vendor email; no owner; Thursday
-bonsai_off_m10_budget_r1_204827,6,matched,5,none,1,REVIEW,spreadsheet; no owner (not flagged; not invented); before finance review
+bonsai_off_m10_budget_r1_204827,4,matched,3,none,1,decided,forecast; no owner; 2nd
+bonsai_off_m10_budget_r1_204827,5,matched,4,none,1,decided,cancel seats + vendor email; no owner; Thursday
+bonsai_off_m10_budget_r1_204827,6,matched,5,none,1,decided,spreadsheet; no owner (not flagged; not invented); before finance review
 granite_off_m10_budget_r1_201539,1,matched,1,1,0,,contract takeover; Muhil; Friday is the email date
 granite_off_m10_budget_r1_201539,2,matched,4,1,1,,cancel seats; Muhil; Thursday
 granite_off_m10_budget_r1_201539,3,matched,3,1,1,,forecast; Elizabeth; 2nd
@@ -234,9 +234,9 @@ granite_off_m10_budget_r1_201539,4,duplicate,4,0,1,,contradicting duplicate: can
 granite_off_m10_budget_r1_201539,5,matched,2,1,1,,vendor emails; Darcy; Friday
 phi_off_m10_budget_r1_202049,1,wrong,,,,,quarterly budget check: the meeting itself
 phi_off_m10_budget_r1_202049,2,duplicate,1,0,1,,contradicting duplicate: contract for Darcy; best match is ext 3
-phi_off_m10_budget_r1_202049,3,matched,1,1,0,REVIEW,contract takeover; Muhil; before Darcy leaves written for a NONE item (gold accepts while on leave)
+phi_off_m10_budget_r1_202049,3,matched,1,1,0,decided,contract takeover; Muhil; before Darcy leaves written for a NONE item (gold accepts while on leave)
 phi_off_m10_budget_r1_202049,4,matched,2,1,1,,vendor emails; Darcy; Friday
 phi_off_m10_budget_r1_202049,5,matched,3,1,1,,forecast; Elizabeth; 2nd
 phi_off_m10_budget_r1_202049,6,wrong,,,,,cheaper laptops: a Not action item (parked)
 phi_off_m10_budget_r1_202049,7,matched,4,0,1,,cancel seats; owner Akhash (declined); Thursday
-phi_off_m10_budget_r1_202049,8,matched,5,1,1,REVIEW,spreadsheet; owner Not specified read as flagged unassigned; before finance review
+phi_off_m10_budget_r1_202049,8,matched,5,1,1,decided,spreadsheet; owner Not specified read as flagged unassigned; before finance review

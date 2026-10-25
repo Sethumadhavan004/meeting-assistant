@@ -33,7 +33,7 @@ bonsai_off_m06_launch_r1_204128,5,matched,6,1,1,,store listing; Akhash; Thursday
 bonsai_off_m06_launch_r1_204128,6,matched,7,1,1,,privacy policy to legal; Eric; today
 bonsai_off_m06_launch_r1_204128,7,matched,8,1,1,,publish privacy policy; Eric; tomorrow morning
 bonsai_off_m06_launch_r1_204128,8,matched,10,1,1,,support inbox; Muhil; 30th and 31st
-bonsai_off_m06_launch_r1_204128,9,matched,11,0,1,REVIEW,cover rest of support week as UNASSIGNED; gold is Elizabeth finding the cover; matched with owner wrong
+bonsai_off_m06_launch_r1_204128,9,matched,11,0,1,decided,cover rest of support week as UNASSIGNED; gold is Elizabeth finding the cover; matched with owner wrong
 bonsai_off_m06_launch_r1_204128,10,duplicate,6,1,1,,store listing again; same owner
 bonsai_off_m06_launch_r1_204128,11,matched,12,1,1,,press release draft; Eric; 24th
 bonsai_off_m06_launch_r1_204128,12,matched,13,1,1,,press release review; Darcy; 26th
@@ -144,7 +144,7 @@ phi_off_m05_sprint_r1_201724,1,matched,1,1,1,,login fix; Goutham; Wednesday
 phi_off_m05_sprint_r1_201724,2,matched,2,1,1,,review; Muhil; Wednesday
 phi_off_m05_sprint_r1_201724,3,matched,3,1,1,,CSV formatting; Eric; next Friday
 phi_off_m05_sprint_r1_201724,4,matched,4,0,1,,docs; invented owner Akhash; before shipping
-phi_off_m05_sprint_r1_201724,5,matched,5,1,1,REVIEW,manage the release / Thursday matched to cut branch (Thursday morning); notes are a separate line
+phi_off_m05_sprint_r1_201724,5,matched,5,1,1,decided,manage the release / Thursday matched to cut branch (Thursday morning); notes are a separate line
 phi_off_m05_sprint_r1_201724,6,matched,6,1,1,,release notes; Akhash; Thursday evening
 phi_off_m05_sprint_r1_201724,7,matched,9,1,0,,second interview; Priya; Tuesday 22nd conflates the two interviews (baseline decision 6)
 phi_off_m06_launch_r1_201749,1,matched,2,1,1,,screenshots; Muhil; tomorrow evening
@@ -160,7 +160,7 @@ phi_off_m06_launch_r1_201749,8,matched,5,1,1,,merged line covers gold 3+4+5: And
 phi_off_m06_launch_r1_201749,9,matched,8,1,1,,publish privacy policy; Eric; tomorrow morning
 phi_off_m06_launch_r1_201749,10,matched,15,1,1,,meeting notes; Elizabeth; this afternoon
 phi_off_m07_postmortem_r1_201837,1,matched,1,1,1,,alert window; Goutham; today
-phi_off_m07_postmortem_r1_201837,2,matched,3,1,1,REVIEW,help with the partner request part of the proposal read as Darcy's notes to Eric; Monday
+phi_off_m07_postmortem_r1_201837,2,matched,3,1,1,decided,help with the partner request part of the proposal read as Darcy's notes to Eric; Monday
 phi_off_m07_postmortem_r1_201837,3,matched,4,1,1,,apology; Elizabeth; tomorrow
 phi_off_m07_postmortem_r1_201837,4,matched,5,1,1,,goodwill credit; Akhash; Thursday
 phi_off_m07_postmortem_r1_201837,5,matched,6,1,1,,replay; Priya; Wednesday

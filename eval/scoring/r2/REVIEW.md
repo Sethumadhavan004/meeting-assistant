@@ -22,3 +22,9 @@ Rows for E:
 Not a decision, recorded as fact: Bonsai r2 m02 and Granite r2 m08 copied the system prompt's
 example lines ("book a room for the review", "Sam · send the budget draft") into their answers.
 Both are labelled `wrong`.
+
+## Author's decisions (2026-10-25)
+
+All defaults (A–E) accepted; numbers in `scores-r2.csv` and `03b-round2-results.md` unchanged.
+Flags now read `decided`. **Base model for app v0: Bonsai 4B + the round-2 system prompt** (Phi as the
+fast alternative).
