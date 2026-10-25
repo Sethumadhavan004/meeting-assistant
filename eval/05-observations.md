@@ -156,3 +156,13 @@ defaults and may change after review.
     (the author's m08 precedent).
 - Same as in m01–m07: content agreement is high; disagreements are about *classification*
   (done-in-meeting, implied deadline, merge vs split).
+
+## 2026-10-25 · Round 2 runs (20:10–20:49)
+
+- 36 runs, all valid: 30 with the system prompt (3 models × 10 meetings, `runs-r2.csv`), 6 baseline
+  runs on held-out m09/m10 (`runs.csv`). All `finish = stop`; max context used 1441; lowest available RAM 0.78 GB.
+- Machine: AC, Best performance. Edge "startup boost" background processes were running (6 processes,
+  ~170 MB, <1 CPU-second per 5 s); judged too small to bias timings, noted here.
+- With the system prompt, answers were much shorter (Granite 48–213 tokens, Phi 37–139, Bonsai
+  42–157), consistent with the one-line-per-item format. Bonsai's time per meeting rose on long
+  meetings (m06: 132 s), because the system prompt adds 292 prompt tokens and Bonsai reads prompts slowly.

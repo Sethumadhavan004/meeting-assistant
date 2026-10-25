@@ -12,6 +12,7 @@ Output:
 Usage:  python eval/scoring/score.py
 Change a label in labels.csv, re-run, and every number updates.
 """
+import argparse
 import csv
 import pathlib
 import re
@@ -40,9 +41,16 @@ def ratio(a, b):
 
 
 def main():
+    # --dir r2 scores a later round from eval/scoring/r2/ into scores-r2.csv; default = baseline
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--dir", help="round folder inside eval/scoring, e.g. r2")
+    a = ap.parse_args()
+    src = HERE / a.dir if a.dir else HERE
+    out_path = ROOT / (f"scores-{a.dir}.csv" if a.dir else "scores.csv")
+
     gold = load_gold()
-    labels = list(csv.DictReader((HERE / "labels.csv").open(encoding="utf-8")))
-    runs = list(csv.DictReader((HERE / "runs.csv").open(encoding="utf-8")))
+    labels = list(csv.DictReader((src / "labels.csv").open(encoding="utf-8")))
+    runs = list(csv.DictReader((src / "runs.csv").open(encoding="utf-8")))
 
     out = []
     for run in runs:
@@ -79,11 +87,11 @@ def main():
             "review_flags": sum(r["review"] == "REVIEW" for r in rows) + (run["review"] == "REVIEW"),
         })
 
-    with (ROOT / "scores.csv").open("w", newline="", encoding="utf-8") as f:
+    with out_path.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=list(out[0]))
         w.writeheader()
         w.writerows(out)
-    print(f"Wrote {len(out)} rows to scores.csv")
+    print(f"Wrote {len(out)} rows to {out_path.name}")
 
 
 if __name__ == "__main__":

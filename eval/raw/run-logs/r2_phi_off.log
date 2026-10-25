@@ -1,0 +1,11 @@
+-> phi_off_m01_pricing_r1_201624 ... 6.07 t/s, 44 tok, 23.8 s, peak 6.14 GB
+-> phi_off_m02_offsite_r1_201648 ... 6.19 t/s, 37 tok, 10.4 s, peak 6.12 GB
+-> phi_off_m03_newsletter_r1_201658 ... 6.12 t/s, 43 tok, 12.2 s, peak 6.12 GB
+-> phi_off_m04_workshop_r1_201711 ... 6.15 t/s, 56 tok, 13.5 s, peak 6.14 GB
+-> phi_off_m05_sprint_r1_201724 ... 5.87 t/s, 85 tok, 24.4 s, peak 6.15 GB
+-> phi_off_m06_launch_r1_201749 ... 5.3 t/s, 139 tok, 47.9 s, peak 6.26 GB
+-> phi_off_m07_postmortem_r1_201837 ... 5.07 t/s, 102 tok, 38.7 s, peak 6.44 GB
+-> phi_off_m08_hiring_r1_201916 ... 5.93 t/s, 84 tok, 22.3 s, peak 6.54 GB
+-> phi_off_m09_escalation_r1_201938 ... 6.06 t/s, 39 tok, 12.1 s, peak 6.58 GB
+-> phi_off_m10_budget_r1_201950 ... 5.92 t/s, 61 tok, 20.1 s, peak 6.25 GB
+Done. Rows appended to runs-r2.csv, full texts in outputs-r2/.

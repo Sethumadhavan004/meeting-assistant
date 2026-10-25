@@ -1,0 +1,11 @@
+-> bonsai_off_m01_pricing_r1_203806 ... 7.69 t/s, 56 tok, 31.8 s, peak 5.16 GB
+-> bonsai_off_m02_offsite_r1_203838 ... 8.06 t/s, 62 tok, 35.1 s, peak 5.18 GB
+-> bonsai_off_m03_newsletter_r1_203913 ... 7.64 t/s, 60 tok, 38.9 s, peak 5.16 GB
+-> bonsai_off_m04_workshop_r1_203952 ... 8.08 t/s, 51 tok, 33.2 s, peak 5.15 GB
+-> bonsai_off_m05_sprint_r1_204026 ... 7.71 t/s, 100 tok, 62.3 s, peak 5.22 GB
+-> bonsai_off_m06_launch_r1_204128 ... 7.63 t/s, 157 tok, 132.0 s, peak 5.34 GB
+-> bonsai_off_m07_postmortem_r1_204340 ... 7.38 t/s, 135 tok, 111.3 s, peak 5.36 GB
+-> bonsai_off_m08_hiring_r1_204532 ... 7.54 t/s, 95 tok, 50.5 s, peak 5.62 GB
+-> bonsai_off_m09_escalation_r1_204622 ... 7.63 t/s, 42 tok, 38.8 s, peak 5.77 GB
+-> bonsai_off_m10_budget_r1_204701 ... 7.57 t/s, 49 tok, 55.4 s, peak 5.77 GB
+Done. Rows appended to runs-r2.csv, full texts in outputs-r2/.

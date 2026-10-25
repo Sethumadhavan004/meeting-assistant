@@ -1,0 +1,3 @@
+-> granite_off_m09_escalation_r1_201500 ... 6.8 t/s, 189 tok, 39.4 s, peak 5.78 GB
+-> granite_off_m10_budget_r1_201539 ... 6.8 t/s, 213 tok, 41.1 s, peak 5.53 GB
+Done. Rows appended to runs.csv, full texts in outputs/.
