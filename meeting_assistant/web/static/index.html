@@ -320,44 +320,60 @@ function addSpeaker(name) {
 }
 
 // ---------- recording: raw PCM via Web Audio, resampled to 16 kHz in the browser ----------
+// One microphone for the whole meeting. Clicking a name only moves the cut point between turns, so
+// nobody's first words are lost while a mic and audio engine start up. (Opening one per click lost
+// ~0.3-0.5 s at every turn start under CPU load: found by the demo take, 2026-10-26.)
+const mic = { stream: null, ctx: null, proc: null };
+
+async function openMic() {
+  if (mic.ctx) return;
+  mic.stream = await navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true } });
+  mic.ctx = new AudioContext();
+  const src = mic.ctx.createMediaStreamSource(mic.stream);
+  mic.proc = mic.ctx.createScriptProcessor(2048, 1, 1);
+  mic.proc.onaudioprocess = (e) => {
+    const rec = state.rec;
+    if (!rec) return;                              // between turns: listen, keep nothing
+    const x = e.inputBuffer.getChannelData(0);
+    rec.chunks.push(new Float32Array(x));
+    let sum = 0; for (let i = 0; i < x.length; i += 16) sum += x[i] * x[i];
+    rec.btn.style.setProperty("--lvl", Math.min(1, Math.sqrt(sum / (x.length / 16)) * 6).toFixed(2));  // mic level
+  };
+  src.connect(mic.proc); mic.proc.connect(mic.ctx.destination);
+}
+
+async function closeMic() {
+  if (!mic.ctx) return;
+  mic.proc.disconnect(); mic.stream.getTracks().forEach((t) => t.stop());
+  await mic.ctx.close();
+  mic.stream = mic.ctx = mic.proc = null;
+}
+
 async function toggle(name, btn) {
   const was = state.live;
-  if (state.rec) await stopTurn();
+  if (state.rec) stopTurn();                       // synchronous: the next turn starts with no gap
   if (was !== name) await startTurn(name, btn);
+  else await closeMic();                           // clicking the live name ends the recording
 }
 
 async function startTurn(name, btn) {
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true } });
-    const ctx = new AudioContext();
-    const src = ctx.createMediaStreamSource(stream);
-    const proc = ctx.createScriptProcessor(4096, 1, 1);
-    const chunks = [];
-    proc.onaudioprocess = (e) => {
-      const x = e.inputBuffer.getChannelData(0);
-      chunks.push(new Float32Array(x));
-      let sum = 0; for (let i = 0; i < x.length; i += 16) sum += x[i] * x[i];
-      btn.style.setProperty("--lvl", Math.min(1, Math.sqrt(sum / (x.length / 16)) * 6).toFixed(2));  // mic level
-    };
-    src.connect(proc); proc.connect(ctx.destination);
-    const t0 = Date.now();
-    state.start ??= t0;
-    state.rec = { stream, ctx, proc, chunks, btn, t0, at: (t0 - state.start) / 1000,
-                  tick: setInterval(() => $("clock").textContent = mmss((Date.now() - t0) / 1000), 250) };
-    state.live = name;
-    $("clock").textContent = "0:00";
-    btn.classList.add("live"); btn.setAttribute("aria-pressed", "true"); $("left").classList.add("recording");
-  } catch (e) { toast("Microphone not available: " + e.message, 5000); }
+  try { await openMic(); } catch (e) { return toast("Microphone not available: " + e.message, 5000); }
+  const t0 = Date.now();
+  state.start ??= t0;
+  state.rec = { chunks: [], btn, at: (t0 - state.start) / 1000,
+                tick: setInterval(() => $("clock").textContent = mmss((Date.now() - t0) / 1000), 250) };
+  state.live = name;
+  $("clock").textContent = "0:00";
+  btn.classList.add("live"); btn.setAttribute("aria-pressed", "true"); $("left").classList.add("recording");
 }
 
-async function stopTurn() {
-  const { stream, ctx, proc, chunks, btn, tick, at } = state.rec, name = state.live;
-  proc.disconnect(); stream.getTracks().forEach((t) => t.stop()); clearInterval(tick);
-  const audio = resample(chunks, ctx.sampleRate, 16000);
-  await ctx.close();
+function stopTurn() {
+  const { chunks, btn, tick, at } = state.rec, name = state.live;
+  clearInterval(tick);
   btn.classList.remove("live"); btn.removeAttribute("aria-pressed"); btn.style.removeProperty("--lvl");
   $("left").classList.remove("recording");
   state.rec = null; state.live = null;
+  const audio = resample(chunks, mic.ctx.sampleRate, 16000);
   if (audio.length < 3200) return;               // under 0.2 s: a click
   const turn = { speaker: name, text: "Transcribing", pending: true, at };
   state.turns.push(turn); renderTurns();         // placeholder keeps turns in speaking order

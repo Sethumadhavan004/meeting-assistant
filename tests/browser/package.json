@@ -1,0 +1,3 @@
+{ "name": "meeting-assistant-browser-tests", "private": true,
+  "scripts": { "test": "node mic_switch.test.js" },
+  "devDependencies": { "puppeteer-core": "24.43.1" } }

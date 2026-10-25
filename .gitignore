@@ -13,3 +13,4 @@ meetings/
 .pytest_cache/
 brag-output/
 meeting_assistant/web/static/_*.html
+tests/browser/node_modules/
