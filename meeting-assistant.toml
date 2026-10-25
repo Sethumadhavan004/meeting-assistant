@@ -1,0 +1,28 @@
+# Meeting assistant settings. Every model server speaks the OpenAI chat API at <url>/v1/chat/completions.
+# Defaults come from the eval: Bonsai + the round-2 system prompt, thinking off (see eval/04-analysis.md).
+
+default_backend = "bonsai"
+system_prompt = "prompts/system/meeting-assistant.md"   # the prompt measured in round 2
+max_tokens = 1000
+timeout_s = 600
+
+[backends.bonsai]
+kind = "llama-server"            # start with scripts/start_bonsai.ps1
+url = "http://127.0.0.1:8080"
+model = "bonsai-4b"
+note = "best recall, deadlines and format in round 2; slowest"
+
+[backends.phi]
+kind = "ollama"                  # ollama pull phi4-mini
+url = "http://127.0.0.1:11434"
+model = "phi4-mini"
+note = "fastest; finds fewer items"
+
+[backends.granite]
+kind = "ollama"                  # ollama pull granite4.2:3b
+url = "http://127.0.0.1:11434"
+model = "granite4.2:3b"
+note = "fast; most helped by the code-side owner rule"
+
+[speech]
+model = "moonshine/base"         # Moonshine ONNX, CPU

@@ -172,3 +172,20 @@
 [34m30.49.348.400[0m [32mI [0mslot print_timing: id  0 | task 1411 |       total time =    7528.00 ms /    66 tokens
 [34m30.49.348.401[0m [32mI [0mslot print_timing: id  0 | task 1411 |    graphs reused =       1384
 [34m30.49.348.468[0m [32mI [0mslot      release: id  0 | task 1411 | stop processing: n_tokens = 513, truncated = 0
+[34m42.14.455.934[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.913 (> 0.100 thold), f_keep = 0.651
+[34m42.14.458.762[0m [32mI [0mslot launch_slot_: id  0 | task 1474 | processing task, is_child = 0
+[34m42.18.477.521[0m [32mI [0mslot print_timing: id  0 | task 1474 | prompt processing, n_tokens =    101, progress = 0.85, t =   4.02 s / 25.14 tokens per second
+[34m42.20.091.648[0m [32mI [0mslot print_timing: id  0 | task 1474 | prompt processing, n_tokens =    152, progress = 0.99, t =   5.63 s / 26.98 tokens per second
+[34m42.23.526.191[0m [32mI [0mslot print_timing: id  0 | task 1474 | prompt eval time =    5847.20 ms /   156 tokens (   37.48 ms per token,    26.68 tokens per second)
+[34m42.23.526.198[0m [32mI [0mslot print_timing: id  0 | task 1474 |        eval time =    3220.18 ms /    25 tokens (  134.17 ms per token,     7.45 tokens per second)
+[34m42.23.526.199[0m [32mI [0mslot print_timing: id  0 | task 1474 |       total time =    9067.37 ms /   181 tokens
+[34m42.23.526.199[0m [32mI [0mslot print_timing: id  0 | task 1474 |    graphs reused =       1407
+[34m42.23.526.812[0m [32mI [0mslot      release: id  0 | task 1474 | stop processing: n_tokens = 390, truncated = 0
+[34m55.02.323.064[0m [32mI [0mslot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.779 (> 0.100 thold), f_keep = 0.849
+[34m55.02.323.247[0m [32mI [0mslot launch_slot_: id  0 | task 1502 | processing task, is_child = 0
+[34m55.06.006.517[0m [32mI [0mslot print_timing: id  0 | task 1502 | prompt processing, n_tokens =    110, progress = 0.99, t =   3.68 s / 29.87 tokens per second
+[34m55.13.297.878[0m [32mI [0mslot print_timing: id  0 | task 1502 | prompt eval time =    3881.90 ms /   114 tokens (   34.05 ms per token,    29.37 tokens per second)
+[34m55.13.297.894[0m [32mI [0mslot print_timing: id  0 | task 1502 |        eval time =    7092.67 ms /    56 tokens (  128.96 ms per token,     7.75 tokens per second)
+[34m55.13.297.898[0m [32mI [0mslot print_timing: id  0 | task 1502 |       total time =   10974.57 ms /   170 tokens
+[34m55.13.297.898[0m [32mI [0mslot print_timing: id  0 | task 1502 |    graphs reused =       1461
+[34m55.13.298.452[0m [32mI [0mslot      release: id  0 | task 1502 | stop processing: n_tokens = 480, truncated = 0

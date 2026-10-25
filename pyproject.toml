@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "meeting-assistant"
+version = "0.1.0"
+description = "A private, local meeting assistant: speech-to-text and action items on an 8 GB CPU-only laptop, with the eval that chose its design"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "requests",
+    "numpy",
+    "useful-moonshine-onnx",
+    "fastapi",
+    "uvicorn",
+    "python-multipart",
+]
+
+[project.optional-dependencies]
+eval = ["psutil", "matplotlib"]
+dev = ["pytest"]
+
+[project.scripts]
+meeting-assistant = "meeting_assistant.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["meeting_assistant*"]
+
+[tool.setuptools.package-data]
+meeting_assistant = ["web/static/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

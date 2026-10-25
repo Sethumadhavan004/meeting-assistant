@@ -1,0 +1,13 @@
+requests
+numpy
+useful-moonshine-onnx
+fastapi
+uvicorn
+python-multipart
+
+[dev]
+pytest
+
+[eval]
+psutil
+matplotlib

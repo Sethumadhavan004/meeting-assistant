@@ -1,0 +1,12 @@
+pyproject.toml
+meeting_assistant/__init__.py
+meeting_assistant/cli.py
+meeting_assistant/config.py
+meeting_assistant/core.py
+meeting_assistant/speech.py
+meeting_assistant.egg-info/PKG-INFO
+meeting_assistant.egg-info/SOURCES.txt
+meeting_assistant.egg-info/dependency_links.txt
+meeting_assistant.egg-info/entry_points.txt
+meeting_assistant.egg-info/requires.txt
+meeting_assistant.egg-info/top_level.txt

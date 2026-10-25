@@ -14,9 +14,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
-sys.path.insert(0, str(ROOT / "app"))
 sys.path.insert(0, str(ROOT / "eval" / "scoring"))
-from core import Item, reconcile  # noqa: E402
+from meeting_assistant.core import Item, reconcile  # noqa: E402
 from score import load_gold  # noqa: E402
 
 
@@ -33,7 +32,8 @@ def answer_items(path):
     return out
 
 
-def main():
+def run():
+    """Return (per-model totals, list of changed owners)."""
     gold = load_gold()
     labels = list(csv.DictReader(open(ROOT / "eval/scoring/r2/labels.csv", encoding="utf-8")))
     totals = {}
@@ -63,6 +63,11 @@ def main():
                     else "false_alarm" if r["owner_ok"] == "1" else "other")
             t[kind] += 1
             changes.append((rid, r["ext"], before[i], items[i].task, gold_owner, kind))
+    return totals, changes
+
+
+def main():
+    totals, changes = run()
 
     print("| model | matched items | owner correct before | fixed | false alarms | owner correct after |")
     print("|---|---|---|---|---|---|")
