@@ -53,26 +53,26 @@ const cues = { clicks: [], audio: [], sfx: [], subs: [], cam: [], pops: [] };
 const hookAt = 0.5, hookClip = 2;                                   // cold open: Akhash's line
 cues.audio.push({ file: RUN.events.filter((e) => e.type === "speak")[hookClip].clip, at: hookAt });
 cues.subs.push({ who: LINES[hookClip][0], text: LINES[hookClip][1], from: hookAt, to: hookAt + clipSec[hookClip] + 0.2, hook: true });
-const APP_IN = hookAt + clipSec[hookClip] + 0.6;
-cues.cam.push({ from: APP_IN + 1.9, d: 1.2, to: CAM.LEFT });
-let t = APP_IN + 1.9 + 1.2 + 1.5;                                   // hold 1.5 s after the move
+const APP_IN = hookAt + clipSec[hookClip] + 0.35;
+cues.cam.push({ from: APP_IN + 1.3, d: 1.2, to: CAM.LEFT });
+let t = APP_IN + 1.3 + 1.2 + 0.5;                                   // short hold after the move
 const speech = [];
 for (let i = 0; i < LINES.length; i++) {
-  const click = i === 0 ? t + 0.85 : speech[i - 1].end + 0.45;
+  const click = i === 0 ? t + 0.85 : speech[i - 1].end + 0.2;   // natural turn-taking gap
   const start = click + 0.25, end = start + clipSec[i];
   speech.push({ click, start, end });
   cues.clicks.push({ at: click, target: { speaker: LINES[i][0] } });
   cues.audio.push({ file: RUN.events.filter((e) => e.type === "speak")[i].clip, at: start });
   cues.subs.push({ who: LINES[i][0], text: LINES[i][1], from: start, to: end + 0.15 });
 }
-const stopAt = speech.at(-1).end + 0.45;
+const stopAt = speech.at(-1).end + 0.3;
 cues.clicks.push({ at: stopAt, target: { speaker: LINES.at(-1)[0] } });
-const lastLanded = stopAt + Math.max(...turnLat.slice(-2)) + 0.6;
-cues.cam.push({ from: lastLanded + 0.4, d: 1.2, to: CAM.FULL });
-const extractAt = lastLanded + 0.4 + 1.2 + 1.5 + 0.85;
+const lastLanded = stopAt + Math.max(...turnLat.slice(-2)) + 0.2;
+cues.cam.push({ from: lastLanded + 0.1, d: 1.2, to: CAM.FULL });
+const extractAt = lastLanded + 0.1 + 1.2 + 0.3 + 0.85;
 cues.clicks.push({ at: extractAt, target: { sel: "#extract" } });
 // time compression of the model wait: ramp 1x -> 4x -> 1x (300 ms ramps), result lands 0.5 s after ramp-down
-const RAMP = 0.3, FAST = 4;
+const RAMP = 0.3, FAST = 6;
 const fastSpan = Math.max(0, (notesLat - 0.2 - 2 * RAMP * (1 + FAST) / 2 - 0.5) / FAST);
 const ramp = { up: extractAt + 0.2, top: extractAt + 0.2 + RAMP, down: extractAt + 0.2 + RAMP + fastSpan, end: extractAt + 0.2 + 2 * RAMP + fastSpan };
 const speedAt = (v) => v < ramp.up || v >= ramp.end ? 1 : v < ramp.top ? lerp(1, FAST, (v - ramp.up) / RAMP)
@@ -83,22 +83,22 @@ let landAt = extractAt; while (appTime(landAt) - appTime(extractAt) < notesLat) 
 const nNotes = RUN.result.items.length;
 for (let i = 0; i < nNotes; i++) cues.sfx.push({ kind: "drop", at: landAt + i * 0.18 + 0.22 });
 const dropsDone = landAt + (nNotes - 1) * 0.18 + 0.5;
-cues.cam.push({ from: dropsDone + 1.2, d: 1.4, to: CAM.DESK });
-t = dropsDone + 1.2 + 1.4 + 1.5;
+cues.cam.push({ from: dropsDone + 0.5, d: 1.4, to: CAM.DESK });
+t = dropsDone + 0.5 + 1.4 + 0.5;
 let typeCue = null;                                                 // pop-outs and the owner typing, in order
 for (const p of POP) {
   if (p.kind === "type") {
     const at = t + 0.85;
     cues.clicks.push({ at, target: { note: p.note, part: ".owner" } });
     typeCue = { note: p.note, value: p.value, at };
-    t = at + 0.3 + p.value.length * 0.12 + 0.3 + 1.0;
+    t = at + 0.3 + p.value.length * 0.12 + 0.3 + 0.5;
   } else {                                                          // out 0.45, hold words*0.3+0.6, back 0.35
     const hold = p.text.split(/\s+/).length * 0.3 + 0.6;
     cues.pops.push({ ...p, notes: p.notes || [p.note], from: t, hold, to: t + 0.45 + hold + 0.35 });
-    t += 0.45 + hold + 0.35 + 0.35;
+    t += 0.45 + hold + 0.35 + 0.15;
   }
 }
-const OUTRO = t + 0.4, OUTRO_B = OUTRO + 6.4, OUTRO_C = OUTRO_B + 11.0, END = OUTRO_C + 9.0;
+const OUTRO = t + 0.3, OUTRO_B = OUTRO + 5.6, OUTRO_C = OUTRO_B + 10.0, END = OUTRO_C + 8.6;
 for (const c of cues.clicks) cues.sfx.push({ kind: "click", at: c.at });
 const NFRAMES = Math.ceil(END * FPS);
 if (process.env.PLAN) {                                             // PLAN=1: print the cue sheet and stop
@@ -152,7 +152,7 @@ body { margin: 0; width: ${VW}px; height: ${VH}px; overflow: hidden; background:
 <div class="layer" id="ov">
   <div id="annot">← click a name, then talk</div>
   <div class="sub" id="sub"><div class="who"><i></i><span></span></div><div class="said"></div><div class="tag">said (script)</div></div>
-  <div id="badge">4× speed</div>
+  <div id="badge">6× speed</div>
   <div class="pop" id="pop"><div class="t"></div><small></small></div>
   <div id="corner">Synthetic voices · real run (take 2), re-rendered frame by frame</div>
   <div id="ring"></div>

@@ -10,7 +10,7 @@ replays one scripted take of the same kind of meeting, and everything the app do
 | | |
 |---|---|
 | **Staged** | The conversation: 6 lines written for the demo ([`script.json`](script.json)) to include the cases the app is built for ("we need…", a reassigned task). The voices: synthetic, from Kokoro (an open-weight text-to-speech model), fed into the app as clean audio, each line 250 ms after the mic was live. Camera moves, cursor, captions and pop-outs. |
-| **Real** | The app (same page, same code), Moonshine's transcription, Bonsai's notes, the code checks, and every timing shown. All from one recorded run, re-rendered frame by frame so the video is smooth regardless of CPU load. The model wait is shown at 4× with a badge. |
+| **Real** | The app (same page, same code), Moonshine's transcription, Bonsai's notes, the code checks, and every timing shown. All from one recorded run, re-rendered frame by frame so the video is smooth regardless of CPU load. The model wait is shown at 6× with a badge. |
 
 ## Two takes
 
