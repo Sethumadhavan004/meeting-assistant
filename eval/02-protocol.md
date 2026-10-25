@@ -107,7 +107,6 @@ outputs are identical (determinism check).
 
 | date | change | reason |
 |---|---|---|
-
 | 2026-10-25 | Clean machine rule: added hands-off during runs | Bonsai runs used ~99.5% CPU; any interactive use would bias timings. Clarifies an existing condition, no runs affected |
 | 2026-10-25 | **Round 2 added** (baseline above unchanged). `eval_runner.py` gained `--system FILE` (system message, sent identically to both backends) and `--round NAME` (writes `runs-<name>.csv`, `outputs-<name>/`, never the baseline files). System prompt: `prompts/system/meeting-assistant.md`, frozen before any scored round-2 run, after one format smoke test on m01 | Tests whether a meeting-assistant system prompt fixes the baseline's ownership, deadline and format errors. Changes one parameter: the system prompt |
 | 2026-10-25 | **Held-out meetings m09, m10** added (Claude-written after the system prompt; author writes gold blind; two-annotator check as before). Run with and without the system prompt | The prompt's rules were chosen after seeing baseline failures on m01–m08, so gains there may be overfitting. m09/m10 were never used to write the prompt |
