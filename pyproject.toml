@@ -29,7 +29,7 @@ meeting-assistant = "meeting_assistant.cli:main"
 include = ["meeting_assistant*"]
 
 [tool.setuptools.package-data]
-meeting_assistant = ["web/static/*"]
+meeting_assistant = ["web/static/*", "web/static/fonts/*"]   # fonts/ is a subfolder: list it
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
