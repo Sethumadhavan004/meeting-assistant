@@ -10,7 +10,7 @@ not "how do I build it" but "which model is good enough here, and what does each
 
 ![The app after a meeting: one sticky note per task, coloured by owner; a white card for a task nobody took](docs/demo-poster.jpg)
 
-**Demo video:** _link coming (YouTube)_ · **Write-up:** _link coming (DEV)_
+**Demo video:** [youtu.be/XEpmtArXQPA](https://youtu.be/XEpmtArXQPA) (70 s, a scripted re-enactment; see below) · **Write-up:** _link coming (DEV)_
 
 ## What it does
 
