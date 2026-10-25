@@ -9,6 +9,7 @@ Pipeline (each step exists because of a finding in eval/):
   3. reconcile  in code, not in the prompt: the prompt fixed deadlines but not owners
                 - "we need..." given to the person who said it -> needs an owner
                 - similar tasks with different owners -> flagged for review, never merged
+                - deadline NONE but the source sentence names a time -> filled in, flagged (author's mic test)
   4. suggest    "we need..." sentences no item covers -> "possibly missed", for the user to confirm
 """
 import re
@@ -27,6 +28,11 @@ NEED = re.compile(r"\b(we need|we should|someone (should|needs|has to)|somebody 
 # ("it has to be live before...") more often than ask for a task (measured on round 2)
 ASK = re.compile(r"\b(we need|we should|someone (should|needs|has to)|somebody (should|needs|has to)|"
                  r"it would be good if)\b", re.I)
+DAY = r"(monday|tuesday|wednesday|thursday|friday|saturday|sunday|mon|tue|wed|thu|fri)"
+MONTH = r"(january|february|march|april|may|june|july|august|september|october|november|december)"
+# time words a speaker uses for a deadline; longest phrases first so "next Friday" beats "Friday"
+WHEN = re.compile(rf"\b((by|before|until|on) )?((next|this) {DAY}|(next|this) week|end of (the )?(day|week|month)|"
+                  rf"eod|eow|today|tonight|tomorrow|{DAY}|the \d{{1,2}}(st|nd|rd|th)|{MONTH} \d{{1,2}}(st|nd|rd|th)?)\b", re.I)
 COMMIT = re.compile(r"\b(i'll|i will|i can|i'm going to|let me|i'll take|that's mine|i'll do)\b", re.I)
 STOP = set("a an the to of for and or in on at by with from is are be it this that we our i you".split())
 
@@ -141,9 +147,28 @@ def reconcile(items, transcript):
                 k.flags.append(f"similar task for {it.owner}: check")
                 it.flags.append(f"similar task for {k.owner}: check")
         kept.append(it)
+    # (c) no deadline, but the sentence the task came from names a time ("I will change it today")
+    for it in kept:
+        # skip if the task already carries its timing ("...after the 31st"): measured false alarm, round 2 phi m06
+        if it.deadline.upper() in ("NONE", "") and not WHEN.search(it.task) and (when := spoken_deadline(it, lines)):
+            it.deadline = when
+            it.flags.append("deadline taken from the transcript: check")
     for k in kept:
         k.flags = list(dict.fromkeys(k.flags))  # unique, in order
     return kept
+
+
+def spoken_deadline(it, lines):
+    """The time words in the sentence an item came from, or None. The owner's own sentences are
+    searched first; a sentence must share words with the task, so an unrelated 'Friday' is ignored."""
+    own = [t for n, t in lines if n.lower() == it.owner.lower()]
+    for pool in (own, [t for _, t in lines]):
+        sents = [s for t in pool for s in re.split(r"(?<=[.!?])\s+", t)]
+        best = max(sents, key=lambda s: overlap(it.task, s), default="")
+        if overlap(it.task, best) >= 0.25:
+            m = WHEN.search(best)
+            return m.group(0) if m else None
+    return None
 
 
 def missed_needs(items, transcript):

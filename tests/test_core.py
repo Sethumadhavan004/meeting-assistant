@@ -80,6 +80,27 @@ def test_reassigned_task_listed_twice_is_flagged_on_both():
     assert out[0].flags == ["similar task for Elizabeth: check"]
 
 
+# ---------------- spoken deadline ----------------
+GOUTHAM = ("Goutham: It's actually a change in conflict. I will change it today.\n"
+           "Priya: We also have to verify that the customers are okay with that, by Friday.")
+
+
+def test_missing_deadline_is_taken_from_the_source_sentence():  # the author's mic test, 2026-10-25
+    out = reconcile([Item("Goutham", "I will change the conflict", "NONE")], GOUTHAM)
+    assert (out[0].deadline, out[0].flags) == ("today", ["deadline taken from the transcript: check"])
+
+
+def test_deadline_in_the_task_text_is_not_doubled():  # round 2 phi m06: would have added "on the 30th"
+    t = "Priya: I can cover the support inbox on the 30th, someone else covers the support inbox after the 31st."
+    out = reconcile([Item("UNASSIGNED", "cover the support inbox after the 31st", "NONE")], t)
+    assert out[0].deadline == "NONE"
+
+
+def test_time_word_in_an_unrelated_sentence_is_ignored():
+    out = reconcile([Item("Darcy", "order new badges", "NONE")], GOUTHAM)
+    assert out[0].deadline == "NONE"
+
+
 # ---------------- missed "we need" ----------------
 def test_missed_need_is_suggested():  # the author's mic test: the model skipped this line
     t = "Akhash: I will send that budget to Priya by Friday.\nPriya: We need someone to book the room."
