@@ -93,12 +93,12 @@ for (const p of POP) {
     typeCue = { note: p.note, value: p.value, at };
     t = at + 0.3 + p.value.length * 0.12 + 0.3 + 0.5;
   } else {                                                          // out 0.45, hold words*0.3+0.6, back 0.35
-    const hold = p.text.split(/\s+/).length * 0.3 + 0.6;
+    const hold = Math.min(3.6, p.text.split(/\s+/).length * 0.2 + 0.4);
     cues.pops.push({ ...p, notes: p.notes || [p.note], from: t, hold, to: t + 0.45 + hold + 0.35 });
     t += 0.45 + hold + 0.35 + 0.15;
   }
 }
-const OUTRO = t + 0.3, OUTRO_B = OUTRO + 5.6, OUTRO_C = OUTRO_B + 10.0, END = OUTRO_C + 8.6;
+const OUTRO = t + 0.3, OUTRO_B = OUTRO + 4.0, OUTRO_C = OUTRO_B + 4.0, END = OUTRO_C + 4.0;   // each end card 4 s
 for (const c of cues.clicks) cues.sfx.push({ kind: "click", at: c.at });
 const NFRAMES = Math.ceil(END * FPS);
 if (process.env.PLAN) {                                             // PLAN=1: print the cue sheet and stop
