@@ -1,0 +1,374 @@
+{
+  "turns": [
+    {
+      "speaker": "Sethu",
+      "text": "Okay guys, let's split the Hiderabad work.",
+      "pending": false,
+      "at": 0
+    },
+    {
+      "speaker": "Goutham",
+      "text": "Book the train, tickets for all four of us by tomorrow.",
+      "pending": false,
+      "at": 3.849
+    },
+    {
+      "speaker": "Akhash",
+      "text": "Tell near Charminar something under 3000 a night.",
+      "pending": false,
+      "at": 8.16
+    },
+    {
+      "speaker": "Ram",
+      "text": "Find a good biryani place for the first night.",
+      "pending": false,
+      "at": 13.024
+    },
+    {
+      "speaker": "Goutham",
+      "text": "Can you collect the money from everyone by Wednesday?",
+      "pending": false,
+      "at": 16.333
+    },
+    {
+      "speaker": "Ram",
+      "text": "And I'll do it.",
+      "pending": false,
+      "at": 20.715
+    }
+  ],
+  "transcript": "Sethu: Okay guys, let's split the Hiderabad work.\nGoutham: Book the train, tickets for all four of us by tomorrow.\nAkhash: Tell near Charminar something under 3000 a night.\nRam: Find a good biryani place for the first night.\nGoutham: Can you collect the money from everyone by Wednesday?\nRam: And I'll do it.",
+  "result": {
+    "backend": "bonsai",
+    "seconds": 19,
+    "raw": "Goutham | Book the train, tickets for all four of us by tomorrow | tomorrow\nAkhash | Tell near Charminar something under 3000 a night | NONE\nRam | Find a good biryani place for the first night | NONE\nRam | Collect the money from everyone by Wednesday | Wednesday",
+    "items": [
+      {
+        "owner": "Goutham",
+        "task": "Book the train, tickets for all four of us by tomorrow",
+        "deadline": "tomorrow",
+        "flags": []
+      },
+      {
+        "owner": "Akhash",
+        "task": "Tell near Charminar something under 3000 a night",
+        "deadline": "NONE",
+        "flags": []
+      },
+      {
+        "owner": "Ram",
+        "task": "Find a good biryani place for the first night",
+        "deadline": "NONE",
+        "flags": []
+      },
+      {
+        "owner": "Ram",
+        "task": "Collect the money from everyone by Wednesday",
+        "deadline": "Wednesday",
+        "flags": []
+      }
+    ],
+    "missed": [],
+    "rejected": []
+  },
+  "people": [
+    "Sethu",
+    "Goutham",
+    "Akhash",
+    "Ram"
+  ],
+  "log": [
+    {
+      "url": "/api/config",
+      "t0": 106,
+      "t1": 182.69999999552965,
+      "status": 200,
+      "req": null,
+      "res": {
+        "default_backend": "bonsai",
+        "participants": [
+          "Sethu",
+          "Goutham",
+          "Akhash",
+          "Ram"
+        ],
+        "backends": {
+          "bonsai": {
+            "model": "bonsai-4b",
+            "note": "best recall, deadlines and format in round 2; slowest"
+          },
+          "phi": {
+            "model": "phi4-mini",
+            "note": "fastest; finds fewer items"
+          },
+          "granite": {
+            "model": "granite4.2:3b",
+            "note": "fast; most helped by the code-side owner rule"
+          }
+        }
+      }
+    },
+    {
+      "url": "/api/transcribe",
+      "t0": 186.5,
+      "t1": 485.5,
+      "status": 200,
+      "req": {
+        "audio_bytes": 64000
+      },
+      "res": {
+        "text": "",
+        "seconds": 1
+      }
+    },
+    {
+      "url": "/api/health",
+      "t0": 185.09999999403954,
+      "t1": 662.6999999955297,
+      "status": 200,
+      "req": null,
+      "res": {
+        "bonsai": {
+          "ok": true
+        },
+        "phi": {
+          "ok": true
+        },
+        "granite": {
+          "ok": true
+        }
+      }
+    },
+    {
+      "url": "/api/transcribe",
+      "t0": 5370.89999999851,
+      "t1": 6067.39999999851,
+      "status": 200,
+      "req": {
+        "audio_bytes": 218452
+      },
+      "res": {
+        "text": "Okay guys, let's split the Hiderabad work.",
+        "seconds": 3.4
+      }
+    },
+    {
+      "url": "/api/transcribe",
+      "t0": 9665.29999999702,
+      "t1": 10516.09999999404,
+      "status": 200,
+      "req": {
+        "audio_bytes": 234836
+      },
+      "res": {
+        "text": "Book the train, tickets for all four of us by tomorrow.",
+        "seconds": 3.7
+      }
+    },
+    {
+      "url": "/api/transcribe",
+      "t0": 14595.09999999404,
+      "t1": 15477,
+      "status": 200,
+      "req": {
+        "audio_bytes": 256680
+      },
+      "res": {
+        "text": "Tell near Charminar something under 3000 a night.",
+        "seconds": 4
+      }
+    },
+    {
+      "url": "/api/transcribe",
+      "t0": 17835.19999999553,
+      "t1": 18686.5,
+      "status": 200,
+      "req": {
+        "audio_bytes": 169300
+      },
+      "res": {
+        "text": "Find a good biryani place for the first night.",
+        "seconds": 2.6
+      }
+    },
+    {
+      "url": "/api/transcribe",
+      "t0": 22194.09999999404,
+      "t1": 22999.19999999553,
+      "status": 200,
+      "req": {
+        "audio_bytes": 223912
+      },
+      "res": {
+        "text": "Can you collect the money from everyone by Wednesday?",
+        "seconds": 3.5
+      }
+    },
+    {
+      "url": "/api/transcribe",
+      "t0": 23932.09999999404,
+      "t1": 24298.5,
+      "status": 200,
+      "req": {
+        "audio_bytes": 70996
+      },
+      "res": {
+        "text": "And I'll do it.",
+        "seconds": 1.1
+      }
+    },
+    {
+      "url": "/api/notes",
+      "t0": 24361,
+      "t1": 43383.29999999702,
+      "status": 200,
+      "req": {
+        "transcript": "Sethu: Okay guys, let's split the Hiderabad work.\nGoutham: Book the train, tickets for all four of us by tomorrow.\nAkhash: Tell near Charminar something under 3000 a night.\nRam: Find a good biryani place for the first night.\nGoutham: Can you collect the money from everyone by Wednesday?\nRam: And I'll do it.",
+        "backend": "bonsai"
+      },
+      "res": {
+        "backend": "bonsai",
+        "seconds": 19,
+        "raw": "Goutham | Book the train, tickets for all four of us by tomorrow | tomorrow\nAkhash | Tell near Charminar something under 3000 a night | NONE\nRam | Find a good biryani place for the first night | NONE\nRam | Collect the money from everyone by Wednesday | Wednesday",
+        "items": [
+          {
+            "owner": "Goutham",
+            "task": "Book the train, tickets for all four of us by tomorrow",
+            "deadline": "tomorrow",
+            "flags": []
+          },
+          {
+            "owner": "Akhash",
+            "task": "Tell near Charminar something under 3000 a night",
+            "deadline": "NONE",
+            "flags": []
+          },
+          {
+            "owner": "Ram",
+            "task": "Find a good biryani place for the first night",
+            "deadline": "NONE",
+            "flags": []
+          },
+          {
+            "owner": "Ram",
+            "task": "Collect the money from everyone by Wednesday",
+            "deadline": "Wednesday",
+            "flags": []
+          }
+        ],
+        "missed": [],
+        "rejected": []
+      }
+    },
+    {
+      "url": "/api/save",
+      "t0": 43903,
+      "t1": 43916.19999999553,
+      "status": 200,
+      "req": {
+        "transcript": "Sethu: Okay guys, let's split the Hiderabad work.\nGoutham: Book the train, tickets for all four of us by tomorrow.\nAkhash: Tell near Charminar something under 3000 a night.\nRam: Find a good biryani place for the first night.\nGoutham: Can you collect the money from everyone by Wednesday?\nRam: And I'll do it.",
+        "result": {
+          "backend": "bonsai",
+          "seconds": 19,
+          "raw": "Goutham | Book the train, tickets for all four of us by tomorrow | tomorrow\nAkhash | Tell near Charminar something under 3000 a night | NONE\nRam | Find a good biryani place for the first night | NONE\nRam | Collect the money from everyone by Wednesday | Wednesday",
+          "items": [
+            {
+              "owner": "Goutham",
+              "task": "Book the train, tickets for all four of us by tomorrow",
+              "deadline": "tomorrow",
+              "flags": []
+            },
+            {
+              "owner": "Akhash",
+              "task": "Tell near Charminar something under 3000 a night",
+              "deadline": "NONE",
+              "flags": []
+            },
+            {
+              "owner": "Ram",
+              "task": "Find a good biryani place for the first night",
+              "deadline": "NONE",
+              "flags": []
+            },
+            {
+              "owner": "Ram",
+              "task": "Collect the money from everyone by Wednesday",
+              "deadline": "Wednesday",
+              "flags": []
+            }
+          ],
+          "missed": [],
+          "rejected": []
+        }
+      },
+      "res": {
+        "folder": "D:\\projects\\meeting-assistant\\meetings\\2026-10-26_001230"
+      }
+    }
+  ],
+  "saved_toast": "Saved to D:\\projects\\meeting-assistant\\meetings\\2026-10-26_001230",
+  "events": [
+    {
+      "type": "speak",
+      "who": "Sethu",
+      "script": "Okay guys, let's split the Hyderabad work.",
+      "clip": "D:\\projects\\meeting-assistant\\brag-output\\work/clips/1_Sethu.wav",
+      "clip_s": 3.2853333333333334,
+      "at_ms": 26
+    },
+    {
+      "type": "speak",
+      "who": "Goutham",
+      "script": "I'll book the train tickets for all four of us by tomorrow.",
+      "clip": "D:\\projects\\meeting-assistant\\brag-output\\work/clips/2_Goutham.wav",
+      "clip_s": 3.648,
+      "at_ms": 4130
+    },
+    {
+      "type": "speak",
+      "who": "Akhash",
+      "script": "We need a hotel near Charminar, something under three thousand a night.",
+      "clip": "D:\\projects\\meeting-assistant\\brag-output\\work/clips/3_Akhash.wav",
+      "clip_s": 4.245333333333333,
+      "at_ms": 8457
+    },
+    {
+      "type": "speak",
+      "who": "Ram",
+      "script": "I'll find a good biryani place for the first night.",
+      "clip": "D:\\projects\\meeting-assistant\\brag-output\\work/clips/4_Ram.wav",
+      "clip_s": 2.453333333333333,
+      "at_ms": 13387
+    },
+    {
+      "type": "speak",
+      "who": "Goutham",
+      "script": "Ram, can you collect the money from everyone by Wednesday?",
+      "clip": "D:\\projects\\meeting-assistant\\brag-output\\work/clips/5_Goutham.wav",
+      "clip_s": 3.52,
+      "at_ms": 16629
+    },
+    {
+      "type": "speak",
+      "who": "Ram",
+      "script": "Done, I'll do it.",
+      "clip": "D:\\projects\\meeting-assistant\\brag-output\\work/clips/6_Ram.wav",
+      "clip_s": 1.024,
+      "at_ms": 20987
+    },
+    {
+      "type": "stop",
+      "at_ms": 22797
+    },
+    {
+      "type": "extract",
+      "at_ms": 23104
+    },
+    {
+      "type": "extracted",
+      "at_ms": 42685
+    }
+  ],
+  "recorded_at": "2026-10-25T18:42:31.581Z",
+  "note": "One take of the frozen script (brag-plan.md). Kokoro voices fed in as the microphone. Not retried."
+}

@@ -29,7 +29,8 @@ Not comparable with the scripted runs, because they had:
 ## Sample size and repeatability
 
 - **One run per prompt, temperature 0.** Greedy decoding is repeatable on the same build and
-  machine, but the planned determinism check (repeat one prompt) was not run.
+  machine. Determinism was spot-checked once: the app's Bonsai answer for m01 matched the round-2
+  run word for word (`05-observations.md`). Not repeated for other prompts or models.
 - **8 meetings, 53 items:** one item is ~2 points of recall. Differences of one or two items between
   the thinking-off setups (e.g. Granite and Phi 50/53 vs Bonsai 48/53) are not meaningful.
 - No confidence intervals: too few samples to make them honest.
@@ -60,6 +61,23 @@ Not comparable with the scripted runs, because they had:
   Speeds scale with memory bandwidth; another machine gives different absolute numbers, though the
   ceiling arithmetic should transfer.
 - Inference used all 4 cores; timings assume nobody touched the laptop during runs.
+
+## Round 2 and the code checks
+
+- **Held-out meetings are tiny:** m09/m10 add 8 items. They show direction, not a measured gain.
+- **The code rules were written after seeing these meetings** (owner rule, "possibly missed",
+  spoken deadline). Their round-2 numbers (11 fixed / 0 false alarms; 6 suggestions / 0 noise;
+  0 changes) are fitted to this data. Real-meeting performance is unmeasured.
+- The system prompt's example lines were copied into answers in 2 of 30 runs; the parser drops them,
+  but a prompt without example lines is untested.
+
+## The demo video
+
+- A **scripted re-enactment**: the app was first used live, offline, by the author with friends
+  planning a trip; screen-recording a live meeting wasn't feasible on this 8 GB laptop. The script
+  was written to include the cases the app handles ("we need…", a reassigned task).
+- Synthetic voices (Kokoro) fed in as clean audio, each line 250 ms after the mic was live. Take 1 was
+  discarded because it exposed the lost-audio bug; take 2 ran once. Both logs: `../demo/logs/`.
 
 ## Transfer to real meetings
 

@@ -88,3 +88,29 @@ On this machine, for this task, **thinking off is the right default**.
 **Base model choice is deferred to round 2.** The three thinking-off setups are within one or two
 items of each other on recall, and the round-2 system prompt targets exactly the errors that separate
 them (owners, invented deadlines, format).
+
+## Round 2 and the app (2026-10-25/26)
+
+Tables: [03b-round2-results.md](03b-round2-results.md). Thinking off throughout.
+
+- **The system prompt fixed deadlines and format, not owners.** Invented deadlines went 6 → 0 for
+  both Phi and Bonsai; deadline accuracy Phi .86 → .93, Bonsai .85 → .96; Bonsai's strict format 8/8.
+  Owner accuracy did not improve overall: Granite .84 → .83, Phi .78 → .84, Bonsai .92 → .86, and the
+  "we need" traps in m01/m02 stayed wrong in every setup.
+- **Recall moved both ways:** Granite .94 → .87 and Phi .94 → .85 (shorter answers, faster:
+  44 → 24 s, 27 → 20 s); Bonsai .91 → .94 but slower (36 → 45 s median).
+- **Held-out meetings (m09/m10, 8 items)** point the same way but are too small to measure a gain.
+- **Base model: Bonsai + the system prompt** (author's decision, 2026-10-25): best recall, deadlines
+  and strict format in round 2; slowest. Phi and Granite stay selectable.
+- **What fixed owners was code, not the prompt.** The owner rule ("we need…" given to the person who
+  said it, who never committed → unowned) fixed 11 wrong owners with 0 false alarms on the round-2
+  answers (Granite owner .81 → .94 on matched items). Caveat: written after seeing these meetings.
+- **Measure before trusting a rule.** Merging similar tasks would have deleted Darcy's press-release
+  review; the app flags instead. The spoken-deadline step had 1 false alarm until it skipped tasks
+  that already carry a time; after that it changed nothing on round 2 and fixed the author's live case.
+- **The demo found a bug the eval couldn't:** opening a mic per speaker click lost ~0.5 s at each turn
+  start ("We need a hotel" → "Tell near"), which also hid the phrase the owner rule needs. Text-only
+  evals can't see capture bugs; the pipeline needs end-to-end tests with audio (`tests/browser/`).
+- **The demo take (scripted, `demo/logs/take2-run-log.json`)** showed both eval findings live: the
+  model gave the hotel to the person who said "we need", and listed a reassigned task twice (asker and
+  doer). The code moved the first to unowned and flagged the second for a human.

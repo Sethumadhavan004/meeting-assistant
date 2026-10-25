@@ -1,0 +1,10 @@
+[
+ {"kind": "pop", "note": 1,
+  "text": "The model gave it to Akhash. A code check saw he never took it, so it's unowned.",
+  "small": "He said \"We need a hotel…\": a need, not a promise."},
+ {"kind": "pop", "notes": [3, 4], "place": "right", "width": 370,
+  "text": "The money task came back twice: Goutham asked, Ram agreed. Code flags both; you decide.",
+  "small": "Who owns it is the model's call. The code only spots the contradiction."},
+ {"kind": "type", "note": 1, "value": "Akhash"},
+ {"kind": "pop", "note": 1, "text": "Who's booking the hotel? You decide.", "small": ""}
+]

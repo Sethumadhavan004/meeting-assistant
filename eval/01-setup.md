@@ -29,7 +29,7 @@ bandwidth    = 2667 MT/s × 8 bytes × 1 channel = 21.3 GB/s
 | runtime | version | endpoint | used for |
 |---|---|---|---|
 | Ollama | 0.40.10 | `http://localhost:11434/api/chat` (native, exact token counts and durations) | granite, phi |
-| PrismML llama.cpp fork (Bonsai demo repo) | _fill in_ | `http://localhost:8080/v1/chat/completions` (with `timings` block) | bonsai |
+| PrismML llama.cpp fork (Bonsai demo repo) | [PrismML-Eng/Bonsai-demo](https://github.com/PrismML-Eng/Bonsai-demo) | `http://localhost:8080/v1/chat/completions` (with `timings` block) | bonsai |
 | Python | 3.13.5, deps in `requirements.txt` | | `eval_runner.py` |
 
 ## Models under test

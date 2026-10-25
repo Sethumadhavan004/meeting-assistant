@@ -14,3 +14,8 @@ meetings/
 brag-output/
 meeting_assistant/web/static/_*.html
 tests/browser/node_modules/
+demo/node_modules/
+demo/out/
+demo/kokoro/
+demo/.venv-tts/
+demo/voice-samples/

@@ -17,6 +17,10 @@ action-item quality per second and per GB, and what does "thinking" mode cost?
 | [08-next-iterations.md](08-next-iterations.md) | roadmap for optimisation rounds | yes |
 | `scoring/` | labels.csv, runs.csv, score.py, REVIEW.md | labels reviewed by author |
 | `report.py`, `charts/` | builds `03-results.md` and the charts from the CSVs | regenerated |
+| [03b-round2-results.md](03b-round2-results.md), `compare.py` | round 2 (system prompt) vs baseline, seen vs held-out meetings | regenerated |
+| `reconcile_check.py` | replays round-2 answers through the app's code checks, rescored against gold | regenerated |
+| `../tests/` | unit tests, the round-2 regression replay, web API, browser mic test | yes |
+| `../demo/` | the demo video's scripts and both take logs (a scripted re-enactment) | frozen |
 | `raw/` | logs exactly as captured, **never edited** | append-only |
 
 Raw data never changes; interpretation does. Keeping them apart means rewriting the
@@ -56,5 +60,13 @@ python eval_runner.py run --model phi     --think off
 # score (after labelling outputs in eval/scoring/labels.csv), then build tables + charts
 python eval/scoring/score.py
 python eval/report.py
+
+# round 2: the same runs with the system prompt, into runs-r2.csv / outputs-r2/
+.\scripts\run_round2.ps1 -Part ollama      # and -Part bonsai with the Bonsai server up
+python eval/scoring/score.py --dir r2
+cd eval; python compare.py; python reconcile_check.py; cd ..
+
+# the app's checks, locked to the measured numbers
+pytest
 ```
 
