@@ -39,3 +39,9 @@ bonsai_on_m07_postmortem_r1_015729,0,,empty answer (hit 3000-token cap while thi
 granite_off_m07_postmortem_r1_033554,0,decided,"lists lines it says are ""omitted"" and repeats items: a reader can't tell what counts"
 granite_on_m07_postmortem_r1_031629,1,,
 phi_off_m07_postmortem_r1_034204,1,,
+bonsai_off_m09_escalation_r1_204758,0,,no owner field on any line
+granite_off_m09_escalation_r1_201500,0,REVIEW,a non-item line (no separate item needed) in the list
+phi_off_m09_escalation_r1_202013,1,,
+bonsai_off_m10_budget_r1_204827,0,,no owner field on any line
+granite_off_m10_budget_r1_201539,1,,
+phi_off_m10_budget_r1_202049,1,,

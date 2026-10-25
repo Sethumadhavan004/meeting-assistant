@@ -39,3 +39,9 @@ bonsai_on_m07_postmortem_r1_015729,bonsai,on,m07,9,0,0,0,0.0,,,,0,1.0,0,0
 granite_off_m07_postmortem_r1_033554,granite,off,m07,9,9,1,1,1.0,0.9,0.889,1.0,0,0.0,0,0
 granite_on_m07_postmortem_r1_031629,granite,on,m07,9,7,0,0,0.778,1.0,1.0,1.0,0,1.0,1,0
 phi_off_m07_postmortem_r1_034204,phi,off,m07,9,9,0,1,1.0,1.0,0.778,1.0,0,0.0,1,0
+bonsai_off_m09_escalation_r1_204758,bonsai,off,m09,3,2,0,0,0.667,1.0,0.0,1.0,0,1.0,0,2
+granite_off_m09_escalation_r1_201500,granite,off,m09,3,3,1,0,1.0,0.75,0.333,0.667,1,0.0,0,2
+phi_off_m09_escalation_r1_202013,phi,off,m09,3,3,1,0,1.0,0.75,0.333,0.667,1,0.0,1,0
+bonsai_off_m10_budget_r1_204827,bonsai,off,m10,5,5,1,0,1.0,0.833,0.0,0.8,1,1.0,0,5
+granite_off_m10_budget_r1_201539,granite,off,m10,5,4,0,1,0.8,1.0,1.0,0.75,1,1.0,1,0
+phi_off_m10_budget_r1_202049,phi,off,m10,5,5,2,1,1.0,0.714,0.8,0.8,1,2.0,1,2

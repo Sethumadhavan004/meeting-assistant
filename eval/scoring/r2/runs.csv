@@ -1,0 +1,31 @@
+run_id,format_valid,review,note
+bonsai_off_m01_pricing_r1_203806,1,,
+bonsai_off_m02_offsite_r1_203838,1,,
+bonsai_off_m03_newsletter_r1_203913,1,,
+bonsai_off_m04_workshop_r1_203952,1,,
+bonsai_off_m05_sprint_r1_204026,1,,(none) instead of NONE still parses
+bonsai_off_m06_launch_r1_204128,1,,
+bonsai_off_m07_postmortem_r1_204340,1,,
+bonsai_off_m08_hiring_r1_204532,1,,
+bonsai_off_m09_escalation_r1_204622,1,,
+bonsai_off_m10_budget_r1_204701,1,,
+granite_off_m01_pricing_r1_201016,1,,tasks copied as transcript quotes but every line parses
+granite_off_m02_offsite_r1_201046,0,REVIEW,header line owner | task | deadline repeated from the prompt (a parser reads it as an item owned by 'owner')
+granite_off_m03_newsletter_r1_201100,1,REVIEW,parses; UNASSIGNED in the deadline field (field misuse)
+granite_off_m04_workshop_r1_201112,0,REVIEW,header line
+granite_off_m05_sprint_r1_201127,1,,
+granite_off_m06_launch_r1_201204,0,REVIEW,header line
+granite_off_m07_postmortem_r1_201259,0,REVIEW,header line
+granite_off_m08_hiring_r1_201352,0,REVIEW,header line
+granite_off_m09_escalation_r1_201419,0,REVIEW,header line; also Done / UNASSIGNED in the deadline field
+granite_off_m10_budget_r1_201432,1,,
+phi_off_m01_pricing_r1_201624,1,,
+phi_off_m02_offsite_r1_201648,1,,
+phi_off_m03_newsletter_r1_201658,1,REVIEW,parses; UNASSIGNED in the deadline field (field misuse)
+phi_off_m04_workshop_r1_201711,1,,
+phi_off_m05_sprint_r1_201724,1,,
+phi_off_m06_launch_r1_201749,1,,
+phi_off_m07_postmortem_r1_201837,0,,one line has only two fields (Muhil | write up ... by Friday)
+phi_off_m08_hiring_r1_201916,1,,
+phi_off_m09_escalation_r1_201938,1,,
+phi_off_m10_budget_r1_201950,1,,

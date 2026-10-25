@@ -1,0 +1,181 @@
+run_id,ext,label,gold,owner_ok,deadline_ok,review,note
+bonsai_off_m01_pricing_r1_203806,1,matched,4,0,1,,page live; invented owner Priya; Friday ~ before Friday demo
+bonsai_off_m01_pricing_r1_203806,2,matched,2,1,1,,copy; Arjun; Wednesday
+bonsai_off_m01_pricing_r1_203806,3,matched,1,1,1,,logo files; Meena; today
+bonsai_off_m01_pricing_r1_203806,4,duplicate,3,0,0,,contradicting duplicate: client email as UNASSIGNED; best match is ext 5
+bonsai_off_m01_pricing_r1_203806,5,matched,3,1,1,,email client; Arjun; tomorrow morning
+bonsai_off_m02_offsite_r1_203838,1,matched,3,0,1,,venue; invented owner Akhash; end of month
+bonsai_off_m02_offsite_r1_203838,2,matched,1,1,1,,agenda; Darcy; Thursday
+bonsai_off_m02_offsite_r1_203838,3,duplicate,2,0,1,,contradicting duplicate: caterer quotes for Goutham (reassigned away); best match is ext 4
+bonsai_off_m02_offsite_r1_203838,4,matched,2,1,1,,caterer quotes; Elizabeth; Monday
+bonsai_off_m02_offsite_r1_203838,5,wrong,,,,,book a room for the review: copied from the system-prompt example; not in the meeting
+bonsai_off_m03_newsletter_r1_203913,1,matched,1,1,1,,open-rate numbers; Eric; Friday
+bonsai_off_m03_newsletter_r1_203913,2,matched,2,1,1,,subject lines; Muhil; next week's issue
+bonsai_off_m03_newsletter_r1_203913,3,duplicate,2,1,1,,same task reworded; same owner
+bonsai_off_m03_newsletter_r1_203913,4,matched,3,1,1,,cleanup; UNASSIGNED flagged; NONE
+bonsai_off_m04_workshop_r1_203952,1,matched,1,1,1,,invites; Darcy; tomorrow
+bonsai_off_m04_workshop_r1_203952,2,matched,3,1,1,,room; Akhash; today
+bonsai_off_m04_workshop_r1_203952,3,matched,4,0,1,,dietary follow-up; invented owner Akhash; NONE
+bonsai_off_m04_workshop_r1_203952,4,matched,2,0,0,,handouts; UNASSIGNED but Darcy owns it; end of the month wrong
+bonsai_off_m05_sprint_r1_204026,1,matched,1,1,1,,login fix; Goutham; Wednesday
+bonsai_off_m05_sprint_r1_204026,2,matched,2,1,1,,review; Muhil; Wednesday
+bonsai_off_m05_sprint_r1_204026,3,matched,3,1,1,,export; Eric; next Friday
+bonsai_off_m05_sprint_r1_204026,4,matched,4,0,1,,docs; invented owner Akhash; before launch ~ before export ships
+bonsai_off_m05_sprint_r1_204026,5,matched,5,1,1,,release branch; Akhash; Thursday morning
+bonsai_off_m05_sprint_r1_204026,6,matched,6,1,1,,release notes; Akhash; Thursday evening
+bonsai_off_m05_sprint_r1_204026,7,matched,7,1,1,,CI to retro agenda; Muhil; (none)
+bonsai_off_m05_sprint_r1_204026,8,matched,9,1,1,,second interview; Priya; 22nd
+bonsai_off_m06_launch_r1_204128,1,matched,2,1,1,,screenshots; Muhil; tomorrow evening
+bonsai_off_m06_launch_r1_204128,2,matched,4,1,1,,Android crash; Goutham; Friday
+bonsai_off_m06_launch_r1_204128,3,matched,3,1,1,,iOS build; Goutham; tomorrow
+bonsai_off_m06_launch_r1_204128,4,matched,5,1,1,,Android build; Goutham; Monday
+bonsai_off_m06_launch_r1_204128,5,matched,6,1,1,,store listing; Akhash; Thursday
+bonsai_off_m06_launch_r1_204128,6,matched,7,1,1,,privacy policy to legal; Eric; today
+bonsai_off_m06_launch_r1_204128,7,matched,8,1,1,,publish privacy policy; Eric; tomorrow morning
+bonsai_off_m06_launch_r1_204128,8,matched,10,1,1,,support inbox; Muhil; 30th and 31st
+bonsai_off_m06_launch_r1_204128,9,matched,11,0,1,REVIEW,cover rest of support week as UNASSIGNED; gold is Elizabeth finding the cover; matched with owner wrong
+bonsai_off_m06_launch_r1_204128,10,duplicate,6,1,1,,store listing again; same owner
+bonsai_off_m06_launch_r1_204128,11,matched,12,1,1,,press release draft; Eric; 24th
+bonsai_off_m06_launch_r1_204128,12,matched,13,1,1,,press release review; Darcy; 26th
+bonsai_off_m06_launch_r1_204128,13,matched,14,1,0,,onboarding test; UNASSIGNED flagged; NONE but before launch was said
+bonsai_off_m06_launch_r1_204128,14,matched,15,1,1,,meeting notes; Elizabeth; this afternoon
+bonsai_off_m07_postmortem_r1_204340,1,matched,1,1,1,,alert window; Goutham; today
+bonsai_off_m07_postmortem_r1_204340,2,matched,2,1,1,,second-reviewer proposal; Eric; next Wednesday
+bonsai_off_m07_postmortem_r1_204340,3,matched,3,1,1,,notes to Eric; Darcy; Monday
+bonsai_off_m07_postmortem_r1_204340,4,matched,4,1,1,,apology email; Elizabeth; tomorrow
+bonsai_off_m07_postmortem_r1_204340,5,matched,5,1,1,,goodwill credit; Akhash; Thursday
+bonsai_off_m07_postmortem_r1_204340,6,matched,6,0,1,,replay; owner Goutham (reassigned to Priya); Wednesday
+bonsai_off_m07_postmortem_r1_204340,7,matched,7,1,1,,one-pager; Eric; no rush = no deadline
+bonsai_off_m07_postmortem_r1_204340,8,matched,9,1,1,,postmortem doc; Muhil; Friday
+bonsai_off_m07_postmortem_r1_204340,9,matched,8,1,1,,status page owner; UNASSIGNED flagged; next ops sync
+bonsai_off_m07_postmortem_r1_204340,10,optional,,,,,fire drill
+bonsai_off_m08_hiring_r1_204532,1,matched,1,1,1,,screening calls; Akhash; NONE
+bonsai_off_m08_hiring_r1_204532,2,matched,2,1,1,,take-home; Elizabeth; NONE
+bonsai_off_m08_hiring_r1_204532,3,matched,3,1,1,,rubric; Priya; NONE
+bonsai_off_m08_hiring_r1_204532,4,matched,4,1,1,,salary + remote; Eric; NONE
+bonsai_off_m08_hiring_r1_204532,5,matched,5,1,1,,shared folder; Darcy; NONE
+bonsai_off_m08_hiring_r1_204532,6,matched,6,1,1,,non-shortlisted candidates; UNASSIGNED flagged; NONE
+bonsai_off_m09_escalation_r1_204622,1,optional,,,,,address fix (done in meeting)
+bonsai_off_m09_escalation_r1_204622,2,matched,2,1,1,,reminder template; Goutham; next Wednesday
+bonsai_off_m09_escalation_r1_204622,3,matched,3,1,1,,check other accounts; UNASSIGNED flagged; NONE
+bonsai_off_m10_budget_r1_204701,1,matched,1,1,0,,contract takeover; Muhil; Friday is the vendor-email date (invented for this item)
+bonsai_off_m10_budget_r1_204701,2,matched,4,1,1,,cancel seats; Muhil; Thursday
+bonsai_off_m10_budget_r1_204701,3,matched,5,0,0,,spreadsheet; invented owner Akhash; NONE but before the finance review was said
+bonsai_off_m10_budget_r1_204701,4,matched,3,1,1,,forecast; Elizabeth; 2nd
+granite_off_m01_pricing_r1_201016,1,matched,4,0,1,,page live (task is a transcript quote); invented owner Priya; Friday
+granite_off_m01_pricing_r1_201016,2,matched,2,1,1,,copy (transcript quote); Arjun; Wednesday
+granite_off_m01_pricing_r1_201016,3,matched,1,1,1,,logo files; Meena; today
+granite_off_m01_pricing_r1_201016,4,matched,3,1,1,,email client; Arjun; tomorrow morning
+granite_off_m01_pricing_r1_201016,5,duplicate,2,1,1,,copy again; same owner
+granite_off_m02_offsite_r1_201046,1,matched,3,0,1,,venue; invented owner Akhash; before end of month
+granite_off_m02_offsite_r1_201046,2,matched,1,1,1,,agenda; Darcy; Thursday
+granite_off_m02_offsite_r1_201046,3,duplicate,2,0,1,,contradicting duplicate: caterer quotes for Goutham; best match is ext 4
+granite_off_m02_offsite_r1_201046,4,matched,2,1,1,,caterer quotes; Elizabeth; Monday
+granite_off_m03_newsletter_r1_201100,1,matched,1,1,1,,open-rate numbers; Eric; Friday
+granite_off_m03_newsletter_r1_201100,2,matched,2,1,1,,subject lines; Muhil; before next week's issue in task (whole-item rule)
+granite_off_m03_newsletter_r1_201100,3,matched,3,0,1,,cleanup; invented owner Eric; UNASSIGNED written in the deadline field (no deadline invented)
+granite_off_m04_workshop_r1_201112,1,matched,1,1,1,,invites; Darcy; tomorrow
+granite_off_m04_workshop_r1_201112,2,matched,2,1,1,,handouts; Darcy; day before the 14th
+granite_off_m04_workshop_r1_201112,3,matched,3,1,1,,room; Akhash; today
+granite_off_m04_workshop_r1_201112,4,matched,4,0,1,,dietary follow-up; invented owner Akhash; before the workshop (acceptable)
+granite_off_m05_sprint_r1_201127,1,matched,1,1,1,,login fix; Goutham; Wednesday
+granite_off_m05_sprint_r1_201127,2,matched,2,1,1,,review; Muhil; same day
+granite_off_m05_sprint_r1_201127,3,matched,3,1,1,,CSV formatting; Eric; next Friday
+granite_off_m05_sprint_r1_201127,4,duplicate,4,0,0,,contradicting duplicate: docs for Akhash; best match is ext 9
+granite_off_m05_sprint_r1_201127,5,matched,5,1,1,,merged line covers gold 5+6: branch Thursday morning
+granite_off_m05_sprint_r1_201127,5,matched,6,1,1,,merged line covers gold 5+6: notes Thursday evening (in task text)
+granite_off_m05_sprint_r1_201127,6,matched,7,1,1,,CI to retro; Muhil; before next retro (acceptable)
+granite_off_m05_sprint_r1_201127,7,matched,8,1,1,,Tuesday interview; Goutham; Tuesday
+granite_off_m05_sprint_r1_201127,8,matched,9,1,1,,second interview; Priya; 22nd
+granite_off_m05_sprint_r1_201127,9,matched,4,1,1,,docs; UNASSIGNED flagged; before it ships in task (whole-item rule)
+granite_off_m06_launch_r1_201204,1,matched,2,1,1,,screenshots; Muhil; tomorrow evening
+granite_off_m06_launch_r1_201204,2,matched,1,1,1,,launch video; Darcy; 25th
+granite_off_m06_launch_r1_201204,3,matched,6,1,0,,store listing; Akhash; Wednesday (changed to Thursday)
+granite_off_m06_launch_r1_201204,4,duplicate,6,1,1,,store listing update after iOS submission; same owner
+granite_off_m06_launch_r1_201204,5,matched,7,1,0,,merged line covers gold 7+8: send to legal; no today given
+granite_off_m06_launch_r1_201204,5,matched,8,1,1,,merged line covers gold 7+8: published by tomorrow morning
+granite_off_m06_launch_r1_201204,6,matched,10,1,1,,support inbox; Muhil; 30th and 31st
+granite_off_m06_launch_r1_201204,7,matched,12,1,1,,press release draft; Eric; 24th
+granite_off_m06_launch_r1_201204,8,matched,13,1,1,,press release review; Darcy; 26th
+granite_off_m06_launch_r1_201204,9,matched,9,1,1,,help center; Priya; 27th
+granite_off_m06_launch_r1_201204,10,matched,14,0,1,,onboarding test; invented owner Priya; before launch
+granite_off_m07_postmortem_r1_201259,1,matched,1,1,1,,alert window; Goutham; today
+granite_off_m07_postmortem_r1_201259,2,matched,2,1,1,,proposal; Eric; next Wednesday
+granite_off_m07_postmortem_r1_201259,3,matched,3,1,1,,notes to Eric; Darcy; Monday
+granite_off_m07_postmortem_r1_201259,4,matched,4,1,1,,apology; Elizabeth; tomorrow
+granite_off_m07_postmortem_r1_201259,5,matched,5,1,1,,goodwill credit; Akhash; Thursday
+granite_off_m07_postmortem_r1_201259,6,matched,6,0,1,,replay; owner Goutham (reassigned to Priya); Wednesday
+granite_off_m07_postmortem_r1_201259,7,matched,9,1,1,,postmortem doc; Muhil; Friday
+granite_off_m07_postmortem_r1_201259,8,duplicate,6,0,1,,contradicting duplicate: replay for Akhash
+granite_off_m07_postmortem_r1_201259,9,duplicate,6,0,1,,contradicting duplicate: replay for Goutham again
+granite_off_m07_postmortem_r1_201259,10,matched,8,0,1,,status page; invented owner Muhil; next ops sync
+granite_off_m07_postmortem_r1_201259,11,optional,,,,,fire drill
+granite_off_m07_postmortem_r1_201259,12,duplicate,9,1,1,,postmortem doc again; same owner
+granite_off_m08_hiring_r1_201352,1,wrong,,,,,external recruiter: a Not action item
+granite_off_m08_hiring_r1_201352,2,matched,5,1,1,,shared folder; Darcy; NONE
+granite_off_m08_hiring_r1_201352,3,matched,2,1,1,,take-home; Elizabeth; NONE
+granite_off_m08_hiring_r1_201352,4,matched,3,1,1,,rubric; Priya; NONE
+granite_off_m08_hiring_r1_201352,5,matched,4,1,1,,salary + remote; Eric; NONE
+granite_off_m08_hiring_r1_201352,6,matched,6,0,1,,non-shortlisted candidates; invented owner Akhash; NONE
+granite_off_m08_hiring_r1_201352,7,wrong,,,,,Sam / send the budget draft to finance: copied from the system-prompt example
+granite_off_m08_hiring_r1_201352,8,wrong,,,,,book a room for the review: copied from the system-prompt example
+granite_off_m09_escalation_r1_201419,1,optional,,,,,address fix (done in meeting)
+granite_off_m09_escalation_r1_201419,2,matched,2,1,1,,reminder template; Goutham; next Wednesday
+granite_off_m09_escalation_r1_201419,3,matched,3,0,1,,check other accounts; invented owner Darcy; UNASSIGNED in the deadline field
+granite_off_m10_budget_r1_201432,1,matched,1,1,0,,contract takeover; Muhil; field says Friday (the vendor-email date) though while she's on leave is in the task
+granite_off_m10_budget_r1_201432,2,matched,2,1,1,,vendor emails; Darcy; Friday
+granite_off_m10_budget_r1_201432,3,matched,3,1,1,,forecast; Elizabeth; 2nd
+granite_off_m10_budget_r1_201432,4,matched,4,1,1,,cancel seats + vendor email; Muhil; Thursday
+granite_off_m10_budget_r1_201432,5,matched,5,0,1,,spreadsheet; invented owner Akhash; before the finance review in task (whole-item rule)
+phi_off_m01_pricing_r1_201624,1,matched,1,1,1,,logo files; Meena; today by 5pm
+phi_off_m01_pricing_r1_201624,2,matched,3,1,1,,email client; Arjun; tomorrow morning
+phi_off_m01_pricing_r1_201624,3,matched,4,0,1,,page live; invented owner Priya; before Friday demo
+phi_off_m02_offsite_r1_201648,1,matched,2,1,1,,caterer quotes; Elizabeth; Monday
+phi_off_m02_offsite_r1_201648,2,matched,1,1,1,,agenda; Darcy; Thursday
+phi_off_m02_offsite_r1_201648,3,matched,3,0,1,,venue; invented owner Akhash; end of month
+phi_off_m03_newsletter_r1_201658,1,matched,1,1,1,,open-rate numbers; Eric; Friday
+phi_off_m03_newsletter_r1_201658,2,matched,2,0,0,,subject lines; owner Priya (declined); NONE but before next week's issue was said
+phi_off_m03_newsletter_r1_201658,3,matched,3,0,1,,cleanup; invented owner Muhil; UNASSIGNED in the deadline field
+phi_off_m04_workshop_r1_201711,1,matched,3,1,1,,room; Akhash; today
+phi_off_m04_workshop_r1_201711,2,matched,1,0,1,,invites; owner Elizabeth (reporter; Darcy owns it); tomorrow
+phi_off_m04_workshop_r1_201711,3,matched,2,0,1,,handouts; owner Elizabeth (Darcy owns it); day before the 14th
+phi_off_m04_workshop_r1_201711,4,matched,4,1,1,,dietary follow-up; UNASSIGNED flagged; NONE
+phi_off_m05_sprint_r1_201724,1,matched,1,1,1,,login fix; Goutham; Wednesday
+phi_off_m05_sprint_r1_201724,2,matched,2,1,1,,review; Muhil; Wednesday
+phi_off_m05_sprint_r1_201724,3,matched,3,1,1,,CSV formatting; Eric; next Friday
+phi_off_m05_sprint_r1_201724,4,matched,4,0,1,,docs; invented owner Akhash; before shipping
+phi_off_m05_sprint_r1_201724,5,matched,5,1,1,REVIEW,manage the release / Thursday matched to cut branch (Thursday morning); notes are a separate line
+phi_off_m05_sprint_r1_201724,6,matched,6,1,1,,release notes; Akhash; Thursday evening
+phi_off_m05_sprint_r1_201724,7,matched,9,1,0,,second interview; Priya; Tuesday 22nd conflates the two interviews (baseline decision 6)
+phi_off_m06_launch_r1_201749,1,matched,2,1,1,,screenshots; Muhil; tomorrow evening
+phi_off_m06_launch_r1_201749,2,matched,6,1,1,,store listing; Akhash; Thursday
+phi_off_m06_launch_r1_201749,3,matched,12,1,1,,press release draft; Eric; 24th
+phi_off_m06_launch_r1_201749,4,matched,13,1,1,,press release review; Darcy; 26th
+phi_off_m06_launch_r1_201749,5,matched,10,1,1,,support inbox; Muhil; 30th and 31st in task (whole-item rule)
+phi_off_m06_launch_r1_201749,6,matched,9,1,1,,help center; Priya; 27th
+phi_off_m06_launch_r1_201749,7,matched,11,1,1,,find support cover; Elizabeth; NONE
+phi_off_m06_launch_r1_201749,8,matched,4,1,0,,merged line covers gold 3+4+5: Android crash fix; Friday not given
+phi_off_m06_launch_r1_201749,8,matched,3,1,1,,merged line covers gold 3+4+5: iOS by tomorrow
+phi_off_m06_launch_r1_201749,8,matched,5,1,1,,merged line covers gold 3+4+5: Android by Monday
+phi_off_m06_launch_r1_201749,9,matched,8,1,1,,publish privacy policy; Eric; tomorrow morning
+phi_off_m06_launch_r1_201749,10,matched,15,1,1,,meeting notes; Elizabeth; this afternoon
+phi_off_m07_postmortem_r1_201837,1,matched,1,1,1,,alert window; Goutham; today
+phi_off_m07_postmortem_r1_201837,2,matched,3,1,1,REVIEW,help with the partner request part of the proposal read as Darcy's notes to Eric; Monday
+phi_off_m07_postmortem_r1_201837,3,matched,4,1,1,,apology; Elizabeth; tomorrow
+phi_off_m07_postmortem_r1_201837,4,matched,5,1,1,,goodwill credit; Akhash; Thursday
+phi_off_m07_postmortem_r1_201837,5,matched,6,1,1,,replay; Priya; Wednesday
+phi_off_m07_postmortem_r1_201837,6,matched,9,1,1,,postmortem doc; Muhil; Friday in task (line has only two fields)
+phi_off_m07_postmortem_r1_201837,7,matched,7,1,1,,one-pager; Eric; no rush
+phi_off_m08_hiring_r1_201916,1,matched,1,1,1,,screening calls; Akhash; NONE
+phi_off_m08_hiring_r1_201916,2,matched,2,1,1,,take-home; Elizabeth; NONE
+phi_off_m08_hiring_r1_201916,3,matched,3,1,1,,rubric; Priya; NONE
+phi_off_m08_hiring_r1_201916,4,matched,4,1,1,,salary + remote; Eric; NONE
+phi_off_m08_hiring_r1_201916,5,matched,5,1,1,,shared folder; Darcy; NONE
+phi_off_m08_hiring_r1_201916,6,matched,6,1,1,,non-shortlisted candidates; UNASSIGNED flagged; NONE
+phi_off_m09_escalation_r1_201938,1,optional,,,,,address fix (done in meeting)
+phi_off_m09_escalation_r1_201938,2,matched,2,1,1,,reminder template; Goutham; next Wednesday
+phi_off_m09_escalation_r1_201938,3,matched,3,1,1,,check other accounts; UNASSIGNED flagged; NONE
+phi_off_m10_budget_r1_201950,1,matched,4,1,1,,cancel seats + confirm with vendor; Muhil; Thursday
+phi_off_m10_budget_r1_201950,2,matched,2,1,1,,vendor emails; Darcy; Friday
+phi_off_m10_budget_r1_201950,3,matched,3,1,1,,forecast; Elizabeth; 2nd
+phi_off_m10_budget_r1_201950,4,matched,5,0,1,,spreadsheet; invented owner Akhash; before the finance review in task (whole-item rule)

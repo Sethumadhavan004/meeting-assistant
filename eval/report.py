@@ -73,10 +73,15 @@ def main():
     ap.add_argument("--scores", default=ROOT / "scores.csv")
     ap.add_argument("--out", default=ROOT / "eval" / "03-results.md")
     ap.add_argument("--tag", default="baseline", help="suffix for chart file names")
+    ap.add_argument("--meetings", default="m01,m02,m03,m04,m05,m06,m07,m08",
+                    help="meetings to include (baseline = the 8 every config ran)")
     a = ap.parse_args()
 
     runs = {r["run_id"]: r for r in load(a.runs)}
-    scores = load(a.scores)
+    keep = set(a.meetings.split(","))
+    scores = [s for s in load(a.scores) if s["prompt_id"] in keep]
+    n_meet = len(keep)
+    n_gold = sum(int(s["gold_items"]) for s in scores if s["model"] == scores[0]["model"] and s["thinking"] == scores[0]["thinking"])
     configs = [c for c in CONFIGS if any((s["model"], s["thinking"]) == c for s in scores)]
     by_cfg = {c: [s for s in scores if (s["model"], s["thinking"]) == c] for c in configs}
     charts = ROOT / "eval" / "charts"
@@ -88,10 +93,10 @@ def main():
          "[04-analysis.md](04-analysis.md). Do not edit by hand: change the labels and re-run._", ""]
 
     # quality summary
-    L += ["## Quality summary (pooled over 8 meetings)", "",
+    L += [f"## Quality summary (pooled over {n_meet} meetings)", "",
           "Recall, precision, owner and deadline accuracy are pooled: counts summed over all meetings, "
-          "then divided, so every gold item weighs the same. Ambiguity is the mean over the 8 "
-          "UNASSIGNED items (2 = flagged, 1 = omitted, 0 = invented an owner).", "",
+          "then divided, so every gold item weighs the same. Ambiguity is the mean over the "
+          f"{n_meet} UNASSIGNED items (2 = flagged, 1 = omitted, 0 = invented an owner).", "",
           "| model | thinking | recall | recall S / M / L | precision | owner | deadline | "
           "invented deadlines | contradicting duplicates | ambiguity | format valid |",
           "|---|---|---|---|---|---|---|---|---|---|---|"]
@@ -106,7 +111,7 @@ def main():
                  f"{p['contra']} | {f2(p['ambiguity'])} | {p['format']}/{p['n']} |")
 
     # efficiency summary
-    L += ["", "## Efficiency summary (medians over 8 meetings)", "",
+    L += ["", f"## Efficiency summary (medians over {n_meet} meetings)", "",
           "Time-to-answer = `wall_s − load_s`. Ceiling = memory bandwidth (21.3 GB/s) ÷ model file "
           "size. RAM delta is system-wide (used minus idle baseline) and rose within batches, so it is "
           "an upper bound on the model's footprint (see [07-limitations.md](07-limitations.md)).", "",
@@ -166,7 +171,7 @@ def main():
         ax.spines[side].set_visible(False)
     ax.set_title("Thinking took ~10× longer and found fewer action items",
                  loc="left", color=INK, fontsize=12, pad=12)
-    fig.text(0.01, 0.01, "Filled = thinking off, hollow = thinking on. 8 meetings, 53 gold items, CPU only, "
+    fig.text(0.01, 0.01, f"Filled = thinking off, hollow = thinking on. {n_meet} meetings, {n_gold} gold items, CPU only, "
              "8 GB RAM.\nMost thinking-on losses: the 3000-token cap was hit before any answer was written.",
              fontsize=7.5, color=INK2)
     fig.tight_layout(rect=(0, 0.07, 1, 1))
