@@ -130,3 +130,13 @@ defaults and may change after review.
   missed it in the first gold draft too.
 - Changed-deadline traps (m06): Granite off fell for both (iOS "Monday", listing "Wednesday"); Phi
   and Bonsai off didn't.
+
+## 2026-10-25 · Stage 5: author review closed
+
+- All six scoring defaults accepted (`eval/scoring/REVIEW.md`); scores are final for the baseline round.
+- **Product insight (author):** contradicting duplicates are captured items, not misses. A real app
+  must add a **reconciliation step** that detects one task with two owners and resolves it (latest
+  assignment wins, or flag for the user). Same need as the cross-chunk press-release case (m01–m07 check).
+- **Format is a product requirement, not just a scoring detail.** The baseline accepted any line a
+  person can read as owner / task / deadline. An app needs a format a program can parse, so the next
+  round fixes the output format in the prompt.

@@ -26,3 +26,17 @@ The rows for decision 6, in `labels.csv`:
 
 How to check any of them: open `outputs/<run_id>.md`, read the **Answer** section only, and compare with
 `gold.md`. Tell Claude the decision number and your choice (e.g. "1 wrong, 2 ok, 3 ok, 4 ok, 5 ok, 6 ok").
+
+## Author's decisions (2026-10-25)
+
+All six defaults kept, so the numbers in `scores.csv` did not change. Flags in `labels.csv` and
+`runs.csv` now read `decided` instead of `REVIEW`, so the judgment rows stay visible.
+
+| # | decision | author's reasoning |
+|---|---|---|
+| 1 | `duplicate` (protocol as written; no change-log entry needed) | The task was captured, not omitted. The contradiction is a product problem: the app needs a review step that resolves conflicting owners |
+| 2 | deadline judged from the whole item | same reasoning as 1 |
+| 3 | one line counts for both gold items | one line can carry two tasks |
+| 4 | "ASAP" = invented deadline | the report should show it was invented |
+| 5 | Claude's defaults | format matters; expected to be solved by a fixed output format in the app |
+| 6 | Claude's defaults, noted as judgment calls | as above |
