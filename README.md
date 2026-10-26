@@ -10,7 +10,7 @@ not "how do I build it" but "which model is good enough here, and what does each
 
 ![The app after a meeting: one sticky note per task, coloured by owner; a white card for a task nobody took](docs/demo-poster.jpg)
 
-**Demo video:** [youtu.be/XEpmtArXQPA](https://youtu.be/XEpmtArXQPA) (70 s, a scripted re-enactment; see below) · **Write-up:** _link coming (DEV)_
+**Demo video:** [youtu.be/XEpmtArXQPA](https://youtu.be/XEpmtArXQPA) (70 s, a scripted re-enactment; see below) · **Write-up:** [DEV post](https://dev.to/sethumadhavan004/whos-booking-the-hotel-what-small-local-llms-get-wrong-in-meetings-and-the-code-that-catches-it-370n)
 
 ## What it does
 
